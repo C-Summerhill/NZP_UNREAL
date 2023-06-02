@@ -7,13 +7,13 @@
 
 #include "InputActionValue.h"
 
-#include "PlayerCharacter.generated.h"
+#include "NZP_PlayerCharacter.generated.h"
 
 class UInputAction;
 class UInputMappingContext;
 
 UCLASS()
-class NZP_UNREAL_API APlayerCharacter : public ACharacter
+class NZP_UNREAL_API ANZP_PlayerCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
@@ -21,7 +21,7 @@ public:
 	//VARIABLES
 	
 	//Sets default values for this character's properties
-	APlayerCharacter();
+	ANZP_PlayerCharacter();
 
 	UPROPERTY(EditDefaultsOnly, Category = Mesh)
 	USkeletalMeshComponent* ThirdPersonMesh;

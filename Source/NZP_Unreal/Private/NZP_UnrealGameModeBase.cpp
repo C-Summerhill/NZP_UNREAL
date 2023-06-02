@@ -4,10 +4,10 @@
 #include "NZP_UnrealGameModeBase.h"
 
 #include "Character/NZP_PlayerController.h"
-#include "Character/PlayerCharacter.h"
+#include "Character/NZP_PlayerCharacter.h"
 
 ANZP_UnrealGameModeBase::ANZP_UnrealGameModeBase()
 {
-	DefaultPawnClass = APlayerCharacter::StaticClass();
+	DefaultPawnClass = ANZP_PlayerCharacter::StaticClass();
 	PlayerControllerClass = ANZP_PlayerController::StaticClass();
 }

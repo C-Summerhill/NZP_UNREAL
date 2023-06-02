@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Character/PlayerCharacter.h"
+#include "Character/NZP_PlayerCharacter.h"
 
 #include "AITypes.h"
 #include "EnhancedInputSubsystems.h"
@@ -12,7 +12,7 @@
 #include "Character/NZP_PlayerState.h"
 
 // Sets default values
-APlayerCharacter::APlayerCharacter()
+ANZP_PlayerCharacter::ANZP_PlayerCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
@@ -44,20 +44,20 @@ APlayerCharacter::APlayerCharacter()
 }
 
 // Called when the game starts or when spawned
-void APlayerCharacter::BeginPlay()
+void ANZP_PlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 }
 
 // Called every frame
-void APlayerCharacter::Tick(float DeltaTime)
+void ANZP_PlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 }
 
 // Called to bind functionality to input
 
-void APlayerCharacter::Movement(const FInputActionValue& Value)
+void ANZP_PlayerCharacter::Movement(const FInputActionValue& Value)
 {
 	if (Value.GetMagnitude() != 0.0f)
 	{
@@ -66,7 +66,7 @@ void APlayerCharacter::Movement(const FInputActionValue& Value)
 	}
 }
 
-void APlayerCharacter::LookingAround(const FInputActionValue& Value)
+void ANZP_PlayerCharacter::LookingAround(const FInputActionValue& Value)
 {
 	if (Value.GetMagnitude() != 0.0f)
 	{
@@ -75,7 +75,7 @@ void APlayerCharacter::LookingAround(const FInputActionValue& Value)
 	}
 }
 
-void APlayerCharacter::Firing(const FInputActionValue& Value)
+void ANZP_PlayerCharacter::Firing(const FInputActionValue& Value)
 {
 	if (Value[0] != 0.0f)
 	{
@@ -83,7 +83,7 @@ void APlayerCharacter::Firing(const FInputActionValue& Value)
 	}
 }
 
-void APlayerCharacter::Crouching(const FInputActionValue& Value)
+void ANZP_PlayerCharacter::Crouching(const FInputActionValue& Value)
 {
 	if (PlayerController->GetCrouchToggle())
 	{
@@ -109,7 +109,7 @@ void APlayerCharacter::Crouching(const FInputActionValue& Value)
 	}
 }
 
-void APlayerCharacter::DropPointsFunction(const FInputActionValue& Value)
+void ANZP_PlayerCharacter::DropPointsFunction(const FInputActionValue& Value)
 {
 	if (LocalPlayerState->GetCurrentPoints() >= PointsToDrop)
 	{
@@ -118,7 +118,7 @@ void APlayerCharacter::DropPointsFunction(const FInputActionValue& Value)
 	}
 }
 
-void APlayerCharacter::PawnClientRestart()
+void ANZP_PlayerCharacter::PawnClientRestart()
 {
 	Super::PawnClientRestart();
 
@@ -136,7 +136,7 @@ void APlayerCharacter::PawnClientRestart()
 	}
 }
 
-void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+void ANZP_PlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
@@ -149,25 +149,25 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		}
 		if (Fire)
 		{
-			PlayerEnhancedInputComponent->BindAction(Fire, ETriggerEvent::Triggered,this, &APlayerCharacter::Firing);
+			PlayerEnhancedInputComponent->BindAction(Fire, ETriggerEvent::Triggered,this, &ANZP_PlayerCharacter::Firing);
 		}
 		if (Looking)
 		{
-			PlayerEnhancedInputComponent->BindAction(Looking, ETriggerEvent::Triggered,this, &APlayerCharacter::LookingAround);
+			PlayerEnhancedInputComponent->BindAction(Looking, ETriggerEvent::Triggered,this, &ANZP_PlayerCharacter::LookingAround);
 		}
 		if (MovementAction)
 		{
-			PlayerEnhancedInputComponent->BindAction(MovementAction, ETriggerEvent::Triggered,this, &APlayerCharacter::Movement);
+			PlayerEnhancedInputComponent->BindAction(MovementAction, ETriggerEvent::Triggered,this, &ANZP_PlayerCharacter::Movement);
 		}
 
 		if (CrouchAction)
 		{
-			PlayerEnhancedInputComponent->BindAction(CrouchAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Crouching);
+			PlayerEnhancedInputComponent->BindAction(CrouchAction, ETriggerEvent::Triggered, this, &ANZP_PlayerCharacter::Crouching);
 		}
 		
 		if (DropPoints)
 		{
-			PlayerEnhancedInputComponent->BindAction(DropPoints, ETriggerEvent::Triggered, this, &APlayerCharacter::DropPointsFunction);
+			PlayerEnhancedInputComponent->BindAction(DropPoints, ETriggerEvent::Triggered, this, &ANZP_PlayerCharacter::DropPointsFunction);
 		}
 	}
 }

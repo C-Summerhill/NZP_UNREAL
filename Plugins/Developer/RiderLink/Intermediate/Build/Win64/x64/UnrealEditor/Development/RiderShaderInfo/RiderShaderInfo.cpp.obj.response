@@ -1,4 +1,4 @@
-F:\UnrealProject\NZP_Unreal\Plugins\Developer\RiderLink\Source\RiderShaderInfo\RiderShaderInfo.cpp
+F:\UnrealProject\NZP_UNREAL\Plugins\Developer\RiderLink\Source\RiderShaderInfo\RiderShaderInfo.cpp
 /I .
 /I Runtime\TraceLog\Public
 /I Runtime\Core\Public
@@ -7,7 +7,7 @@ F:\UnrealProject\NZP_Unreal\Plugins\Developer\RiderLink\Source\RiderShaderInfo\R
 /I Runtime\Json\Public
 /I Runtime\RenderCore\Public
 /I Runtime\RHI\Public
-/I F:\UnrealProject\NZP_Unreal\Plugins\Developer\RiderLink\Source
+/I F:\UnrealProject\NZP_UNREAL\Plugins\Developer\RiderLink\Source
 /external:W0
 /external:I ThirdParty\mimalloc\include
 /external:I "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\INCLUDE"
@@ -15,9 +15,9 @@ F:\UnrealProject\NZP_Unreal\Plugins\Developer\RiderLink\Source\RiderShaderInfo\R
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\shared"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\um"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt"
-/FI"F:\UnrealProject\NZP_Unreal\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderShaderInfo\Definitions.h"
-/Fo"F:\UnrealProject\NZP_Unreal\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderShaderInfo\RiderShaderInfo.cpp.obj"
-/sourceDependencies F:\UnrealProject\NZP_Unreal\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderShaderInfo\RiderShaderInfo.cpp.dep.json
+/FI"F:\UnrealProject\NZP_UNREAL\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderShaderInfo\Definitions.h"
+/Fo"F:\UnrealProject\NZP_UNREAL\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderShaderInfo\RiderShaderInfo.cpp.obj"
+/sourceDependencies F:\UnrealProject\NZP_UNREAL\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderShaderInfo\RiderShaderInfo.cpp.dep.json
 /Zc:inline
 /nologo
 /Oi
