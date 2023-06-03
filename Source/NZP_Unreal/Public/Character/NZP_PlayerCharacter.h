@@ -97,6 +97,7 @@ protected:
 	void Firing(const FInputActionValue& Value);
 	void Crouching(const FInputActionValue& Value);
 	void DropPointsFunction(const FInputActionValue& Value);
+	void Interaction(const FInputActionValue& Value);
 
 	virtual void PawnClientRestart() override;
 

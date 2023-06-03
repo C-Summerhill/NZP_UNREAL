@@ -41,6 +41,7 @@ ANZP_PlayerCharacter::ANZP_PlayerCharacter()
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera Component"));
 	CameraComponent->SetupAttachment(GetMesh());
 	CameraComponent->SetRelativeLocation(FVector(0,0,50));
+	CameraComponent->bUsePawnControlRotation = true;
 }
 
 // Called when the game starts or when spawned
@@ -118,6 +119,11 @@ void ANZP_PlayerCharacter::DropPointsFunction(const FInputActionValue& Value)
 	}
 }
 
+void ANZP_PlayerCharacter::Interaction(const FInputActionValue& Value)
+{
+}
+
+
 void ANZP_PlayerCharacter::PawnClientRestart()
 {
 	Super::PawnClientRestart();
@@ -168,6 +174,10 @@ void ANZP_PlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 		if (DropPoints)
 		{
 			PlayerEnhancedInputComponent->BindAction(DropPoints, ETriggerEvent::Triggered, this, &ANZP_PlayerCharacter::DropPointsFunction);
+		}
+		if (InteractionAction)
+		{
+			PlayerEnhancedInputComponent->BindAction(InteractionAction, ETriggerEvent::Triggered, this, &ANZP_PlayerCharacter::Interaction);
 		}
 	}
 }
