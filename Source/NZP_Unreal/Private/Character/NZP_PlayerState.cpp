@@ -30,6 +30,7 @@ void ANZP_PlayerState::SetTotalPoints(int64 NewCurrentPoints)
 
 void ANZP_PlayerState::AddPoints(int64 PointsToAdd)
 {
+	//TODO: Checks for point increases (eg. Double Points)
 	CurrentPoints += PointsToAdd;
 	TotalPoints += PointsToAdd;
 }
@@ -40,9 +41,16 @@ bool ANZP_PlayerState::SpendPoints(int64 PointsToTake)
 	{
 		return false;
 	}
-	else
-	{
-		CurrentPoints -= PointsToTake;
-		return true;
-	}
+	CurrentPoints -= PointsToTake;
+	return true;
+}
+
+void ANZP_PlayerState::SetPositionInTeam_Implementation(int NewPositionNumber)
+{
+	PositionInTeam = NewPositionNumber;
+}
+
+void ANZP_PlayerState::SetTeamNumberOnServer_Implementation(const int NewTeamNumber)
+{
+	TeamNumber = NewTeamNumber;
 }

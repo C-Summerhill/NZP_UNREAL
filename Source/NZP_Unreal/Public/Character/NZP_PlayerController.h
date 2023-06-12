@@ -19,8 +19,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Controls|Settings")
 	bool bToggleCrouched = false;
 
-
-
 public:
 
 	UFUNCTION()

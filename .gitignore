@@ -78,3 +78,4 @@ DerivedDataCache/*
 
 # Don't include the riderplugin
 Plugins/*/RiderLink/*
+Plugins/Developer/RiderLink

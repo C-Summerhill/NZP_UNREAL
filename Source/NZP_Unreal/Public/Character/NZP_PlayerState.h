@@ -24,18 +24,31 @@ public:
 	UFUNCTION(BlueprintCallable)
 	int64 GetTotalPoints();
 
-protected:
-	void SetCurrentPoints(int64 NewCurrentPoints);
-	void SetTotalPoints(int64 NewCurrentPoints);
+	UFUNCTION(Server, Reliable)
+	void SetTeamNumberOnServer(int NewTeamNumber);
+
+	UFUNCTION(Server, Reliable)
+	void SetPositionInTeam(int NewPositionNumber);
 
 	UFUNCTION(BlueprintCallable)
 	void AddPoints(int64 PointsToAdd);
 
 	UFUNCTION(BlueprintCallable)
 	bool SpendPoints(int64 PointsToTake);
+
+protected:
+	void SetCurrentPoints(int64 NewCurrentPoints);
+	void SetTotalPoints(int64 NewCurrentPoints);
+
+
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay|Team")
+	int TeamNumber;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay|Team")
+	int PositionInTeam;
 private:
 	int64 CurrentPoints;
 	int64 TotalPoints;
-	
 };
