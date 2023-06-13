@@ -23,5 +23,4 @@ public:
 
 	/** Remove PlayerState from the PlayerArray. */
 	virtual void RemovePlayerState(APlayerState* PlayerState) override;
-	
 };

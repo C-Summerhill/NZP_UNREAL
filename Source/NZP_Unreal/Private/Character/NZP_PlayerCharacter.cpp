@@ -10,6 +10,7 @@
 #include "Camera/CameraComponent.h"
 #include "Character/NZP_PlayerController.h"
 #include "Character/NZP_PlayerState.h"
+#include "Drops/NZP_Drops_ZombiePoints.h"
 
 // Sets default values
 ANZP_PlayerCharacter::ANZP_PlayerCharacter()
@@ -17,7 +18,7 @@ ANZP_PlayerCharacter::ANZP_PlayerCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
-	//Get Correct Player Controller
+	//Get Correct Player Controller /* here in case I need it */
 	//PlayerController = Cast<ANZP_PlayerController>(GetController());
 
 	//Get Correct Player State
@@ -28,7 +29,7 @@ ANZP_PlayerCharacter::ANZP_PlayerCharacter()
 	GetMesh()->SetOnlyOwnerSee(true);
 	GetMesh()->bCastDynamicShadow = false;
 	GetMesh()->CastShadow = false;
-	GetMesh()->SetRelativeLocation(FVector(0,0,-90));
+	GetMesh()->SetRelativeLocation(FVector(-20,0,-90));
 
 	//Third Person Mesh Setup
 	ThirdPersonMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Third Person Mesh"));
@@ -45,7 +46,7 @@ ANZP_PlayerCharacter::ANZP_PlayerCharacter()
 	//Camera Setup
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera Component"));
 	CameraComponent->SetupAttachment(GetMesh());
-	CameraComponent->SetRelativeLocation(FVector(0,0,150));
+	CameraComponent->SetRelativeLocation(FVector(20,0,150));
 	CameraComponent->bUsePawnControlRotation = true;
 }
 
@@ -117,17 +118,21 @@ void ANZP_PlayerCharacter::Crouching(const FInputActionValue& Value)
 
 void ANZP_PlayerCharacter::DropPointsFunction(const FInputActionValue& Value)
 {
-	if (LocalPlayerState->GetCurrentPoints() >= PointsToDrop)
+	if (LocalPlayerState->GetCurrentPoints() >= PointsToDrop && Anzp_Drops_ZombiePointsReference)
 	{
 		//TODO: Drop points.
+		GetWorld()->SpawnActor<ANZP_Drops_ZombiePoints>(Anzp_Drops_ZombiePointsReference,GetActorLocation() + (GetActorForwardVector() * 100)
+			,FRotator(0,0,0));
+
 		//TODO: Take Points from Current Player State.
+		LocalPlayerState->SpendPoints(PointsToDrop);
 	}
 }
 
 void ANZP_PlayerCharacter::Interaction(const FInputActionValue& Value)
 {
+	
 }
-
 
 void ANZP_PlayerCharacter::PawnClientRestart()
 {
@@ -178,7 +183,7 @@ void ANZP_PlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 		
 		if (DropPoints)
 		{
-			PlayerEnhancedInputComponent->BindAction(DropPoints, ETriggerEvent::Triggered, this, &ANZP_PlayerCharacter::DropPointsFunction);
+			PlayerEnhancedInputComponent->BindAction(DropPoints, ETriggerEvent::Completed, this, &ANZP_PlayerCharacter::DropPointsFunction);
 		}
 		if (InteractionAction)
 		{

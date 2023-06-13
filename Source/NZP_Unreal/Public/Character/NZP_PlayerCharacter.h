@@ -33,7 +33,10 @@ public:
 	bool IsCrouching = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Point Systems")
-	int64 PointsToDrop;
+	int64 PointsToDrop = 250;
+
+	UPROPERTY(EditAnywhere, Category = "Point Systems")
+	TSubclassOf<class ANZP_Drops_ZombiePoints> Anzp_Drops_ZombiePointsReference;
 
 protected:
 

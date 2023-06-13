@@ -18,10 +18,10 @@ class NZP_UNREAL_API ANZP_PlayerState : public APlayerState
 
 public:
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, BlueprintPure)
 	int64 GetCurrentPoints();
 	
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, BlueprintPure)
 	int64 GetTotalPoints();
 
 	UFUNCTION(Server, Reliable)

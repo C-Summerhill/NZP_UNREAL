@@ -75,7 +75,7 @@ void ANZP_DropsCore::ToggleFlashing()
 
 void ANZP_DropsCore::PickupFunction_Implementation(ANZP_PlayerCharacter* OtherActor)
 {
-	SelfDestroy();
+	Destroy();
 }
 
 void ANZP_DropsCore::FastFlash()

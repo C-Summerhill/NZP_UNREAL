@@ -66,7 +66,7 @@ private:
 	UPROPERTY()
 	bool IsVisible = true;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	bool bDoesDegrade = true;
 protected:
 	// Called when the game starts or when spawned

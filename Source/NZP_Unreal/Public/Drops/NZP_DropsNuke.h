@@ -14,10 +14,7 @@ class NZP_UNREAL_API ANZP_DropsNuke : public ANZP_DropsCore
 {
 	GENERATED_BODY()
 
-public:
-	virtual void DropBeginOverlapTrigger(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bBFromSweep,
-	                                     const FHitResult& SweepResult) override;
-	
+public:	
 	virtual void PickupFunction(ANZP_PlayerCharacter* OtherActor) override;
 
 public:

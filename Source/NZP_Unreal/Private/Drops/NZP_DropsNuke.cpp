@@ -8,14 +8,6 @@
 #include "Character/NZP_PlayerCharacter.h"
 #include "Kismet/GameplayStatics.h"
 
-void ANZP_DropsNuke::DropBeginOverlapTrigger(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
-                                             UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bBFromSweep, const FHitResult& SweepResult)
-{
-	Super::DropBeginOverlapTrigger(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex, bBFromSweep,
-	                               SweepResult);
-	
-}
-
 void ANZP_DropsNuke::PickupFunction(ANZP_PlayerCharacter* OtherActor)
 {
 	if (OtherActor && HasAuthority())
