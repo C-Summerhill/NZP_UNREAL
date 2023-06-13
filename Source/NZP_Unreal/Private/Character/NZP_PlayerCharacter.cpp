@@ -28,6 +28,7 @@ ANZP_PlayerCharacter::ANZP_PlayerCharacter()
 	GetMesh()->SetOnlyOwnerSee(true);
 	GetMesh()->bCastDynamicShadow = false;
 	GetMesh()->CastShadow = false;
+	GetMesh()->SetRelativeLocation(FVector(0,0,-90));
 
 	//Third Person Mesh Setup
 	ThirdPersonMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Third Person Mesh"));
@@ -37,10 +38,14 @@ ANZP_PlayerCharacter::ANZP_PlayerCharacter()
 	ThirdPersonMesh->CastShadow = true;
 	ThirdPersonMesh->bCastHiddenShadow = true;
 
+	//Third Person Adjustments
+	ThirdPersonMesh->SetRelativeLocation(FVector(0,0,-90));
+	ThirdPersonMesh->SetRelativeRotation(FRotator(0,-90,0));
+
 	//Camera Setup
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera Component"));
 	CameraComponent->SetupAttachment(GetMesh());
-	CameraComponent->SetRelativeLocation(FVector(0,0,50));
+	CameraComponent->SetRelativeLocation(FVector(0,0,150));
 	CameraComponent->bUsePawnControlRotation = true;
 }
 
