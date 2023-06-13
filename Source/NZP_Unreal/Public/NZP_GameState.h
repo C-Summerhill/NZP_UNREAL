@@ -11,7 +11,7 @@
  * 
  */
 UCLASS()
-class NZP_UNREAL_API ANZP_GameState : public AGameState
+class NZP_UNREAL_API ANZP_GameState : public AGameStateBase
 {
 	GENERATED_BODY()
 
