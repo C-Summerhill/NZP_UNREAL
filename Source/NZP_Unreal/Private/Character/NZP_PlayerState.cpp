@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+//Connor Summerhill 2023
 
 
 #include "Character/NZP_PlayerState.h"
