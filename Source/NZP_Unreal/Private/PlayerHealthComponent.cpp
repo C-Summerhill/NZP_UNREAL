@@ -5,6 +5,12 @@
 
 #include "Character/NZP_PlayerCharacter.h"
 
+UPlayerHealthComponent::UPlayerHealthComponent()
+{
+	MaxHealth = 100;
+	CurrentHealth = 100;
+}
+
 void UPlayerHealthComponent::Death(FGameplayTag DamageType, AActor* ActorSource, ELocationHit LocationHit,
                                    int64 PointForKill, int64 PointForHeadshotKill)
 {

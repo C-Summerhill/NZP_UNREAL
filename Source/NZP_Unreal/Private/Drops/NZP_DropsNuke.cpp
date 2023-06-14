@@ -3,8 +3,11 @@
 
 #include "Drops/NZP_DropsNuke.h"
 
+#include "EngineUtils.h"
 #include "NZP_GameState.h"
 #include "NZP_UnrealGameModeBase.h"
+#include "ZombieHealthComponent.h"
+#include "AI/NZP_ZombieCharacter.h"
 #include "Character/NZP_PlayerCharacter.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -12,11 +15,20 @@ void ANZP_DropsNuke::PickupFunction(ANZP_PlayerCharacter* OtherActor)
 {
 	if (OtherActor && HasAuthority())
 	{
-		//TODO: Kill all zombies
-
-		ANZP_PlayerState* PlayerState = Cast<ANZP_PlayerState>(OtherActor->GetPlayerState());
+		//Kill all zombies
+		int NukeKills = 0;
+		for(TActorIterator<ANZP_ZombieCharacter> Zombie(GetWorld()); Zombie; ++Zombie)
+		{
+			Zombie->ZombieHealthComponent->TakeDamage(Zombie->ZombieHealthComponent->MaxHealth, NukeDamageType, OtherActor
+				, ELocationHit::Head,0,0);
+			NukeKills++;
+		}
+		
+		//TODO: Achievement system trigger check [NZP: THE F BOMB: Kill only 1 zombie with a Nuke]
+		
+		const ANZP_PlayerState* PlayerState = Cast<ANZP_PlayerState>(OtherActor->GetPlayerState());
 		ANZP_GameState* GameState = GetWorld()->GetGameState<ANZP_GameState>();
-		//TODO: Reward team for collecting Nuke
+		//Reward team for collecting Nuke
 		for (int PlayersCheckedCount = 0; PlayersCheckedCount == GameState->NZPPlayerState.Num(); PlayersCheckedCount++)
 		{
 			if (GameState->NZPPlayerState[PlayersCheckedCount]->TeamNumber == PlayerState->TeamNumber)
@@ -25,7 +37,9 @@ void ANZP_DropsNuke::PickupFunction(ANZP_PlayerCharacter* OtherActor)
 			}			
 		}
 	}
+
+	Destroy();
 	
-	//Will Destory the actor when used.
+	//Will Destroy the actor when used.
 	Super::PickupFunction(OtherActor);
 }

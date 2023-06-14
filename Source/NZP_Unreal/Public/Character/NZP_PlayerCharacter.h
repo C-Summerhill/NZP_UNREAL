@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 
 #include "InputActionValue.h"
+#include "PlayerHealthComponent.h"
 
 #include "NZP_PlayerCharacter.generated.h"
 
@@ -37,6 +38,9 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Point Systems")
 	TSubclassOf<class ANZP_Drops_ZombiePoints> Anzp_Drops_ZombiePointsReference;
+
+	UPROPERTY(EditDefaultsOnly)
+	UPlayerHealthComponent* PlayerHealthComponent;
 
 protected:
 

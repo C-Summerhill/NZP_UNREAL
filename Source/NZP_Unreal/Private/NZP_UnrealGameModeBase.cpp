@@ -20,9 +20,7 @@ void ANZP_UnrealGameModeBase::OnPostLogin(AController* NewPlayer)
 {
 	Super::OnPostLogin(NewPlayer);
 
-	ANZP_PlayerState* newPlayerState = Cast<ANZP_PlayerController>(NewPlayer)->GetPlayerState<ANZP_PlayerState>();
-
-	if (newPlayerState)
+	if (ANZP_PlayerState* newPlayerState = Cast<ANZP_PlayerController>(NewPlayer)->GetPlayerState<ANZP_PlayerState>())
 	{
 		newPlayerState->SetTeamNumberOnServer(CurrentTeam);
 		newPlayerState->SetPositionInTeam(PositionToAddTeamMembers);

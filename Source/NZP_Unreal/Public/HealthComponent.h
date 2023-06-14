@@ -34,6 +34,8 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Server, Unreliable)
 	void TakeDamage(int64 DamageToTake, FGameplayTag DamageType, AActor* ActorSource, ELocationHit LocationHit, int64 PointForKill, int64 PointForHeadshotKill);
+
+	UFUNCTION()
 	virtual void Death(FGameplayTag DamageType, AActor* ActorSource,
 	                   ELocationHit LocationHit, int64 PointForKill, int64 PointForHeadshotKill);
 

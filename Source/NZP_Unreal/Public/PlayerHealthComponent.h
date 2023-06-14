@@ -14,6 +14,8 @@ class NZP_UNREAL_API UPlayerHealthComponent : public UHealthComponent
 {
 	GENERATED_BODY()
 
+	UPlayerHealthComponent();
+
 	virtual void Death(FGameplayTag DamageType, AActor* ActorSource,
 		ELocationHit LocationHit, int64 PointForKill, int64 PointForHeadshotKill) override;
 };

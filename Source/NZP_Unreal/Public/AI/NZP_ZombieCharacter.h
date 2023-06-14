@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ZombieHealthComponent.h"
 #include "GameFramework/Character.h"
 #include "NZP_ZombieCharacter.generated.h"
 
@@ -17,13 +18,15 @@ public:
 
 	//ANZP_ZombieCharacter(const FObjectInitializer& ObjectInitializer);
 
+	UFUNCTION(BlueprintCallable)
+	UZombieHealthComponent* GetZombieHealthComponent();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
+	UPROPERTY()
+	UZombieHealthComponent* ZombieHealthComponent;
+	
 };

@@ -20,4 +20,7 @@ public:
 public:
 	UPROPERTY(EditDefaultsOnly)
 	int64 BasePointsGiven = 400;
+
+	UPROPERTY(EditDefaultsOnly)
+	FGameplayTag NukeDamageType = FGameplayTag::RequestGameplayTag("DamageType.Nuke");
 };

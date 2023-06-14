@@ -48,6 +48,8 @@ ANZP_PlayerCharacter::ANZP_PlayerCharacter()
 	CameraComponent->SetupAttachment(GetMesh());
 	CameraComponent->SetRelativeLocation(FVector(20,0,150));
 	CameraComponent->bUsePawnControlRotation = true;
+
+	PlayerHealthComponent = CreateDefaultSubobject<UPlayerHealthComponent>(TEXT("Health System"));
 }
 
 // Called when the game starts or when spawned
