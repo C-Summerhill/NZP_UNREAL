@@ -3,11 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BuyInteractionInterface.h"
 #include "GameFramework/Actor.h"
 #include "NZP_BuyableCore.generated.h"
 
 UCLASS()
-class NZP_UNREAL_API ANZP_BuyableCore : public AActor
+class NZP_UNREAL_API ANZP_BuyableCore : public AActor, public IBuyInteractionInterface
 {
 	GENERATED_BODY()
 	
@@ -15,11 +16,11 @@ public:
 	// Sets default values for this actor's properties
 	ANZP_BuyableCore();
 
-	UFUNCTION(BlueprintCallable, Server, Reliable)
-	void Buyable();
+	bool Buyable_Implementation() override;
+	virtual bool BuyablePure() override; //C++ only
 
-	UFUNCTION(BlueprintCallable)
-	FString GiveInformation();
+	FString GiveInformationPure() override;
+	virtual FString GiveInformation_Implementation() override;
 	
 public:
 

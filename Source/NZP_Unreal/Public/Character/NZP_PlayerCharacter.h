@@ -42,6 +42,10 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	UPlayerHealthComponent* PlayerHealthComponent;
 
+	//Interaction with the world
+	UPROPERTY(BlueprintReadWrite)
+	FString CurrentObjectInRange = "";
+
 protected:
 
 #pragma region INPUT
@@ -77,6 +81,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Controls|Input Mappings")
 	int32 FPSMappingContextPriority = 0;
 
+	UPROPERTY(EditDefaultsOnly)
+	float TraceDistance = 500;
+
 #pragma endregion
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Controller")
@@ -99,6 +106,9 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 protected:
+	void ScanForIntractable();
+
+	//Inputs
 	void Movement(const FInputActionValue& Value);
 	void LookingAround(const FInputActionValue& Value);
 	void Firing(const FInputActionValue& Value);

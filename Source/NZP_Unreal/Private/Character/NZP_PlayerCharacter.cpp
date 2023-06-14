@@ -4,6 +4,7 @@
 #include "Character/NZP_PlayerCharacter.h"
 
 #include "AITypes.h"
+#include "BuyInteractionInterface.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInput/Public/EnhancedInputComponent.h"
 
@@ -16,7 +17,7 @@
 ANZP_PlayerCharacter::ANZP_PlayerCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
 
 	//Get Correct Player Controller /* here in case I need it */
 	//PlayerController = Cast<ANZP_PlayerController>(GetController());
@@ -62,6 +63,8 @@ void ANZP_PlayerCharacter::BeginPlay()
 void ANZP_PlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	
 }
 
 // Called to bind functionality to input
@@ -191,5 +194,30 @@ void ANZP_PlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 		{
 			PlayerEnhancedInputComponent->BindAction(InteractionAction, ETriggerEvent::Triggered, this, &ANZP_PlayerCharacter::Interaction);
 		}
+	}
+}
+
+void ANZP_PlayerCharacter::ScanForIntractable()
+{
+	FVector Start = GetOwner()->GetActorLocation();
+	FVector End = ((GetActorForwardVector()*TraceDistance) + Start);
+
+	FHitResult Hit;
+	FCollisionQueryParams TraceParams;
+
+	bool bHit = GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, TraceParams);
+	DrawDebugLine(GetWorld(), Start, End, FColor::Orange, false, 0.1f);
+
+	if (bHit)
+	{
+		if (Hit.GetActor()->GetClass()->ImplementsInterface(UBuyInteractionInterface::StaticClass()))
+		{
+			CurrentObjectInRange = Cast<IBuyInteractionInterface>(Hit.GetActor())->GiveInformation();
+			CurrentObjectInRange = IBuyInteractionInterface::Execute_GiveInformation(Hit.GetActor());
+		}
+	}
+	else
+	{
+		CurrentObjectInRange = "";
 	}
 }

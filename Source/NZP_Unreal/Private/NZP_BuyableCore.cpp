@@ -11,12 +11,22 @@ ANZP_BuyableCore::ANZP_BuyableCore()
 	InteractionInformation = "Default Give information";
 }
 
-FString ANZP_BuyableCore::GiveInformation()
+bool ANZP_BuyableCore::Buyable_Implementation()
 {
-	return InteractionInformation;
+	return false;
 }
 
-void ANZP_BuyableCore::Buyable_Implementation()
+bool ANZP_BuyableCore::BuyablePure()
 {
-	
+	return false;
+}
+
+FString ANZP_BuyableCore::GiveInformationPure()
+{
+	return "Default";
+}
+
+FString ANZP_BuyableCore::GiveInformation_Implementation()
+{
+	return "Default";
 }
