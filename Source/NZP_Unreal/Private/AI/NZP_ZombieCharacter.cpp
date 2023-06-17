@@ -10,6 +10,8 @@ ANZP_ZombieCharacter::ANZP_ZombieCharacter()
 	PrimaryActorTick.bCanEverTick = false;
 
 	ZombieHealthComponent = CreateDefaultSubobject<UZombieHealthComponent>(TEXT("Heath Component"));
+	SkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Zombie Mesh"));
+	SkeletalMeshComponent->SetupAttachment(GetRootComponent());
 }
 
 UZombieHealthComponent* ANZP_ZombieCharacter::GetZombieHealthComponent()

@@ -5,7 +5,7 @@
 
 ANZP_PlayerState::ANZP_PlayerState()
 {
-	
+	CurrentPoints = 500;
 }
 
 int64 ANZP_PlayerState::GetCurrentPoints()

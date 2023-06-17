@@ -12,13 +12,17 @@ void UZombieHealthComponent::Death(FGameplayTag DamageType, AActor* ActorSource,
 
  	if (ANZP_ZombieCharacter* ZombieCharacter = Cast<ANZP_ZombieCharacter>(GetOwner()))
  	{
- 		if(ANZP_PlayerCharacter* PlayerCharacter = Cast<ANZP_PlayerCharacter>(ActorSource))
+ 		if(PointForKill != 0 || PointForHeadshotKill != 0)
  		{
- 			Cast<ANZP_PlayerState>(PlayerCharacter->GetPlayerState())->AddPoints(
-				 LocationHit==Head ? PointForHeadshotKill : PointForKill);
+ 			if(ANZP_PlayerCharacter* PlayerCharacter = Cast<ANZP_PlayerCharacter>(ActorSource))
+ 			{
+ 				Cast<ANZP_PlayerState>(PlayerCharacter->GetPlayerState())->AddPoints(
+					 LocationHit==Head ? PointForHeadshotKill : PointForKill);
+ 			}
  		}
-		
  		//TODO: Update wave system to let it know I died.
  		//TODO: Ready death animation.
+
+ 		ZombieCharacter->Destroy();
  	}
 }

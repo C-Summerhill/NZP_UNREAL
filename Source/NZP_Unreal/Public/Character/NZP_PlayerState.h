@@ -40,8 +40,6 @@ protected:
 	void SetCurrentPoints(int64 NewCurrentPoints);
 	void SetTotalPoints(int64 NewCurrentPoints);
 
-
-
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay|Team")
 	int TeamNumber;
@@ -49,6 +47,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay|Team")
 	int PositionInTeam;
 private:
+	
 	int64 CurrentPoints;
+	
 	int64 TotalPoints;
 };

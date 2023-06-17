@@ -20,6 +20,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	UZombieHealthComponent* GetZombieHealthComponent();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -28,5 +29,7 @@ public:
 
 	UPROPERTY()
 	UZombieHealthComponent* ZombieHealthComponent;
-	
+
+	UPROPERTY(EditDefaultsOnly)
+	USkeletalMeshComponent* SkeletalMeshComponent;
 };
