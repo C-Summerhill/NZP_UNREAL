@@ -4,6 +4,7 @@
 #include "Drops/NZP_DropsCore.h"
 
 #include "Components/AudioComponent.h"
+#include "Windows/WindowsApplication.h"
 
 // Sets default values
 ANZP_DropsCore::ANZP_DropsCore()
@@ -43,6 +44,8 @@ void ANZP_DropsCore::BeginPlay()
 		GetWorldTimerManager().SetTimer(DropRemainingTimerFasterFlashing, this, &ANZP_DropsCore::FasterFlash,DropStartingFasterFlashTimer, false);
 		
 		GetWorldTimerManager().SetTimer(DropRemainingTimer, this, &ANZP_DropsCore::SelfDestroy, DropStartingCountDownTimer, false);
+
+		//Likely not the best way to handle this, might change this later.
 	}
 }
 
@@ -58,7 +61,6 @@ void ANZP_DropsCore::DropBeginOverlapTrigger(UPrimitiveComponent* OverlappedComp
 // Called every frame
 void ANZP_DropsCore::Tick(float DeltaTime)
 {
-	Super::Tick(DeltaTime);
 
 }
 

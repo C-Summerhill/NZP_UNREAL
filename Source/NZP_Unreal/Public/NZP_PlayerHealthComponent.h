@@ -3,18 +3,18 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "HealthComponent.h"
-#include "PlayerHealthComponent.generated.h"
+#include "NZP_HealthComponent.h"
+#include "NZP_PlayerHealthComponent.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class NZP_UNREAL_API UPlayerHealthComponent : public UHealthComponent
+class NZP_UNREAL_API UNZP_PlayerHealthComponent : public UNZP_HealthComponent
 {
 	GENERATED_BODY()
 
-	UPlayerHealthComponent();
+	UNZP_PlayerHealthComponent();
 
 	virtual void Death(FGameplayTag DamageType, AActor* ActorSource,
 		ELocationHit LocationHit, int64 PointForKill, int64 PointForHeadshotKill) override;

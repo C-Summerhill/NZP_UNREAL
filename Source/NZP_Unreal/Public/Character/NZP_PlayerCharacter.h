@@ -6,7 +6,7 @@
 #include "GameFramework/Character.h"
 
 #include "InputActionValue.h"
-#include "PlayerHealthComponent.h"
+#include "NZP_PlayerHealthComponent.h"
 
 #include "NZP_PlayerCharacter.generated.h"
 
@@ -40,7 +40,7 @@ public:
 	TSubclassOf<class ANZP_Drops_ZombiePoints> Anzp_Drops_ZombiePointsReference;
 
 	UPROPERTY(EditDefaultsOnly)
-	UPlayerHealthComponent* PlayerHealthComponent;
+	UNZP_PlayerHealthComponent* PlayerHealthComponent;
 
 	//Interaction with the world
 	UPROPERTY(BlueprintReadWrite)

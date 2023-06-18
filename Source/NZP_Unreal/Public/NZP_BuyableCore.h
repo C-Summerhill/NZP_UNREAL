@@ -3,12 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "BuyInteractionInterface.h"
+#include "NZP_BuyInteractionInterface.h"
 #include "GameFramework/Actor.h"
 #include "NZP_BuyableCore.generated.h"
 
 UCLASS()
-class NZP_UNREAL_API ANZP_BuyableCore : public AActor, public IBuyInteractionInterface
+class NZP_UNREAL_API ANZP_BuyableCore : public AActor, public INZP_BuyInteractionInterface
 {
 	GENERATED_BODY()
 	

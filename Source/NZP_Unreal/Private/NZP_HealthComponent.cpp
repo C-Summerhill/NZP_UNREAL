@@ -8,12 +8,12 @@
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values for this component's properties
-UHealthComponent::UHealthComponent()
+UNZP_HealthComponent::UNZP_HealthComponent()
 {
 	InitializeSystem();
 }
 
-UHealthComponent::UHealthComponent(const FObjectInitializer& ObjectInitializer, int64 NewMaxHealth,
+UNZP_HealthComponent::UNZP_HealthComponent(const FObjectInitializer& ObjectInitializer, int64 NewMaxHealth,
 	FGameplayTagContainer NewDamageResistances, FGameplayTagContainer NewDamageImmunities
 	, FGameplayTagContainer NewDamageWeakness)
 {
@@ -25,7 +25,7 @@ UHealthComponent::UHealthComponent(const FObjectInitializer& ObjectInitializer, 
 	InitializeSystem();
 }
 
-void UHealthComponent::TakeDamage_Implementation(int64 DamageToTake, FGameplayTag DamageType, AActor* ActorSource,
+void UNZP_HealthComponent::TakeDamage_Implementation(int64 DamageToTake, FGameplayTag DamageType, AActor* ActorSource,
 	ELocationHit LocationHit,int64 PointForKill, int64 PointForHeadshotKill)
 {
 	if (DamageImmunities.HasTagExact(DamageType))
@@ -67,20 +67,20 @@ void UHealthComponent::TakeDamage_Implementation(int64 DamageToTake, FGameplayTa
 	}
 }
 
-void UHealthComponent::Death(FGameplayTag DamageType, AActor* ActorSource,
+void UNZP_HealthComponent::Death(FGameplayTag DamageType, AActor* ActorSource,
 	ELocationHit LocationHit,int64 PointForKill, int64 PointForHeadshotKill)
 {
 
 }
 
-void UHealthComponent::InitializeSystem()
+void UNZP_HealthComponent::InitializeSystem()
 {
 	PrimaryComponentTick.bCanEverTick = false;
 	CurrentHealth = MaxHealth;
 }
 
 // Called when the game starts
-void UHealthComponent::BeginPlay()
+void UNZP_HealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -91,7 +91,7 @@ void UHealthComponent::BeginPlay()
 
 // Called every frame
 /*
-void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void UNZP_HealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 

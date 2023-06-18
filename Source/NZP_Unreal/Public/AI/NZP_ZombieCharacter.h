@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ZombieHealthComponent.h"
+#include "NZP_ZombieHealthComponent.h"
 #include "GameFramework/Character.h"
 #include "NZP_ZombieCharacter.generated.h"
 
@@ -19,7 +19,7 @@ public:
 	//ANZP_ZombieCharacter(const FObjectInitializer& ObjectInitializer);
 
 	UFUNCTION(BlueprintCallable)
-	UZombieHealthComponent* GetZombieHealthComponent();
+	UNZP_ZombieHealthComponent* GetZombieHealthComponent();
 
 protected:
 	// Called when the game starts or when spawned
@@ -28,7 +28,7 @@ protected:
 public:
 
 	UPROPERTY()
-	UZombieHealthComponent* ZombieHealthComponent;
+	UNZP_ZombieHealthComponent* ZombieHealthComponent;
 
 	UPROPERTY(EditDefaultsOnly)
 	USkeletalMeshComponent* SkeletalMeshComponent;

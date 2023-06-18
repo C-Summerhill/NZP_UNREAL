@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 #include "Components/ActorComponent.h"
-#include "HealthComponent.generated.h"
+#include "NZP_HealthComponent.generated.h"
 
 UENUM()
 enum ELocationHit
@@ -16,15 +16,15 @@ enum ELocationHit
 };
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class NZP_UNREAL_API UHealthComponent : public UActorComponent
+class NZP_UNREAL_API UNZP_HealthComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	UHealthComponent();
+	UNZP_HealthComponent();
 
-	UHealthComponent(const FObjectInitializer& ObjectInitializer, int64 NewMaxHealth,
+	UNZP_HealthComponent(const FObjectInitializer& ObjectInitializer, int64 NewMaxHealth,
 	FGameplayTagContainer NewDamageResistances, FGameplayTagContainer NewDamageImmunities
 	, FGameplayTagContainer NewDamageWeakness);
 

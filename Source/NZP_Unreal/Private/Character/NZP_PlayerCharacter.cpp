@@ -4,7 +4,7 @@
 #include "Character/NZP_PlayerCharacter.h"
 
 #include "AITypes.h"
-#include "BuyInteractionInterface.h"
+#include "NZP_BuyInteractionInterface.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInput/Public/EnhancedInputComponent.h"
 
@@ -50,7 +50,7 @@ ANZP_PlayerCharacter::ANZP_PlayerCharacter()
 	CameraComponent->SetRelativeLocation(FVector(20,0,150));
 	CameraComponent->bUsePawnControlRotation = true;
 
-	PlayerHealthComponent = CreateDefaultSubobject<UPlayerHealthComponent>(TEXT("Health System"));
+	PlayerHealthComponent = CreateDefaultSubobject<UNZP_PlayerHealthComponent>(TEXT("Health System"));
 }
 
 // Called when the game starts or when spawned
@@ -210,10 +210,10 @@ void ANZP_PlayerCharacter::ScanForIntractable()
 
 	if (bHit)
 	{
-		if (Hit.GetActor()->GetClass()->ImplementsInterface(UBuyInteractionInterface::StaticClass()))
+		if (Hit.GetActor()->GetClass()->ImplementsInterface(UNZP_BuyInteractionInterface::StaticClass()))
 		{
-			CurrentObjectInRange = Cast<IBuyInteractionInterface>(Hit.GetActor())->GiveInformation();
-			CurrentObjectInRange = IBuyInteractionInterface::Execute_GiveInformation(Hit.GetActor());
+			CurrentObjectInRange = Cast<INZP_BuyInteractionInterface>(Hit.GetActor())->GiveInformation();
+			CurrentObjectInRange = INZP_BuyInteractionInterface::Execute_GiveInformation(Hit.GetActor());
 		}
 	}
 	else

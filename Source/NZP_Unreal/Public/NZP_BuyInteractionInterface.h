@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
-#include "BuyInteractionInterface.generated.h"
+#include "NZP_BuyInteractionInterface.generated.h"
 
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
-class UBuyInteractionInterface : public UInterface
+class UNZP_BuyInteractionInterface : public UInterface
 {
 	GENERATED_BODY()
 };
@@ -16,7 +16,7 @@ class UBuyInteractionInterface : public UInterface
 /**
  * 
  */
-class NZP_UNREAL_API IBuyInteractionInterface
+class NZP_UNREAL_API INZP_BuyInteractionInterface
 {
 	GENERATED_BODY()
 

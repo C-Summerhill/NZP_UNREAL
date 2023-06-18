@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "HealthComponent.h"
-#include "ZombieHealthComponent.generated.h"
+#include "NZP_HealthComponent.h"
+#include "NZP_ZombieHealthComponent.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class NZP_UNREAL_API UZombieHealthComponent : public UHealthComponent
+class NZP_UNREAL_API UNZP_ZombieHealthComponent : public UNZP_HealthComponent
 {
 	GENERATED_BODY()
 

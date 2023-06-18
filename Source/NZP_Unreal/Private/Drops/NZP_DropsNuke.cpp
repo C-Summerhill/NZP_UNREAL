@@ -6,7 +6,7 @@
 #include "EngineUtils.h"
 #include "NZP_GameState.h"
 #include "NZP_UnrealGameModeBase.h"
-#include "ZombieHealthComponent.h"
+#include "NZP_ZombieHealthComponent.h"
 #include "AI/NZP_ZombieCharacter.h"
 #include "Character/NZP_PlayerCharacter.h"
 #include "Kismet/GameplayStatics.h"

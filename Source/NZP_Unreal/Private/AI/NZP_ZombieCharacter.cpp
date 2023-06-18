@@ -9,12 +9,12 @@ ANZP_ZombieCharacter::ANZP_ZombieCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
-	ZombieHealthComponent = CreateDefaultSubobject<UZombieHealthComponent>(TEXT("Heath Component"));
+	ZombieHealthComponent = CreateDefaultSubobject<UNZP_ZombieHealthComponent>(TEXT("Heath Component"));
 	SkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Zombie Mesh"));
 	SkeletalMeshComponent->SetupAttachment(GetRootComponent());
 }
 
-UZombieHealthComponent* ANZP_ZombieCharacter::GetZombieHealthComponent()
+UNZP_ZombieHealthComponent* ANZP_ZombieCharacter::GetZombieHealthComponent()
 {
 	return ZombieHealthComponent;
 }

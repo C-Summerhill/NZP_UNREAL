@@ -1,17 +1,17 @@
 // Connor Summerhill 2023
 
 
-#include "PlayerHealthComponent.h"
+#include "NZP_PlayerHealthComponent.h"
 
 #include "Character/NZP_PlayerCharacter.h"
 
-UPlayerHealthComponent::UPlayerHealthComponent()
+UNZP_PlayerHealthComponent::UNZP_PlayerHealthComponent()
 {
 	MaxHealth = 100;
 	CurrentHealth = 100;
 }
 
-void UPlayerHealthComponent::Death(FGameplayTag DamageType, AActor* ActorSource, ELocationHit LocationHit,
+void UNZP_PlayerHealthComponent::Death(FGameplayTag DamageType, AActor* ActorSource, ELocationHit LocationHit,
                                    int64 PointForKill, int64 PointForHeadshotKill)
 {
 	Super::Death(DamageType, ActorSource, LocationHit, PointForKill, PointForHeadshotKill);
