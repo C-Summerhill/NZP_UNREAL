@@ -9,17 +9,18 @@
 // Sets default values
 ANZP_DropsCore::ANZP_DropsCore()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
 	InitializeDefaults();
 }
 
-ANZP_DropsCore::ANZP_DropsCore(const FObjectInitializer& ObjectInitializer, bool bNewDoesDegrade = true, float NewDropStartingCountDownTimer = 30.0f,
-	float NewDropStartingFastFlashTimer = 20.f, float NewDropStartingFasterFlashTimer = 10.f, float NewDropFastFlashingSpeed = .5f,
-	float NewDropFasterFlashingSpeed = .1f)
+ANZP_DropsCore::ANZP_DropsCore(const FObjectInitializer& ObjectInitializer, bool bNewDoesDegrade = true,
+                               float NewDropStartingCountDownTimer = 30.0f,
+                               float NewDropStartingFastFlashTimer = 20.f, float NewDropStartingFasterFlashTimer = 10.f,
+                               float NewDropFastFlashingSpeed = .5f,
+                               float NewDropFasterFlashingSpeed = .1f)
 {
-	
 	PrimaryActorTick.bCanEverTick = false;
 
 	bDoesDegrade = bNewDoesDegrade;
@@ -28,7 +29,7 @@ ANZP_DropsCore::ANZP_DropsCore(const FObjectInitializer& ObjectInitializer, bool
 	DropStartingFasterFlashTimer = NewDropStartingFasterFlashTimer;
 	DropFastFlashingSpeed = NewDropFastFlashingSpeed;
 	DropFasterFlashingSpeed = NewDropFasterFlashingSpeed;
-	
+
 	InitializeDefaults();
 }
 
@@ -39,18 +40,22 @@ void ANZP_DropsCore::BeginPlay()
 
 	if (bDoesDegrade)
 	{
-		GetWorldTimerManager().SetTimer(DropRemainingTimerFastFlashing, this, &ANZP_DropsCore::FastFlash,DropStartingFastFlashTimer,false);
+		GetWorldTimerManager().SetTimer(DropRemainingTimerFastFlashing, this, &ANZP_DropsCore::FastFlash,
+		                                DropStartingFastFlashTimer, false);
 
-		GetWorldTimerManager().SetTimer(DropRemainingTimerFasterFlashing, this, &ANZP_DropsCore::FasterFlash,DropStartingFasterFlashTimer, false);
-		
-		GetWorldTimerManager().SetTimer(DropRemainingTimer, this, &ANZP_DropsCore::SelfDestroy, DropStartingCountDownTimer, false);
+		GetWorldTimerManager().SetTimer(DropRemainingTimerFasterFlashing, this, &ANZP_DropsCore::FasterFlash,
+		                                DropStartingFasterFlashTimer, false);
+
+		GetWorldTimerManager().SetTimer(DropRemainingTimer, this, &ANZP_DropsCore::SelfDestroy,
+		                                DropStartingCountDownTimer, false);
 
 		//Likely not the best way to handle this, might change this later.
 	}
 }
 
 void ANZP_DropsCore::DropBeginOverlapTrigger(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
-	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bBFromSweep, const FHitResult& SweepResult)
+                                             UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bBFromSweep,
+                                             const FHitResult& SweepResult)
 {
 	if (ANZP_PlayerCharacter* PlayerCharacter = Cast<ANZP_PlayerCharacter>(OtherActor))
 	{
@@ -61,7 +66,6 @@ void ANZP_DropsCore::DropBeginOverlapTrigger(UPrimitiveComponent* OverlappedComp
 // Called every frame
 void ANZP_DropsCore::Tick(float DeltaTime)
 {
-
 }
 
 void ANZP_DropsCore::SelfDestroy()
@@ -82,20 +86,22 @@ void ANZP_DropsCore::PickupFunction_Implementation(ANZP_PlayerCharacter* OtherAc
 
 void ANZP_DropsCore::FastFlash()
 {
-	if(GetWorldTimerManager().TimerExists(DropTimerFlashingTimer))
+	if (GetWorldTimerManager().TimerExists(DropTimerFlashingTimer))
 	{
 		GetWorldTimerManager().ClearTimer(DropTimerFlashingTimer);
 	}
-	GetWorldTimerManager().SetTimer(DropTimerFlashingTimer, this, &ANZP_DropsCore::ToggleFlashing,DropFastFlashingSpeed, true);
+	GetWorldTimerManager().SetTimer(DropTimerFlashingTimer, this, &ANZP_DropsCore::ToggleFlashing,
+	                                DropFastFlashingSpeed, true);
 }
 
 void ANZP_DropsCore::FasterFlash()
 {
-	if(GetWorldTimerManager().TimerExists(DropTimerFlashingTimer))
+	if (GetWorldTimerManager().TimerExists(DropTimerFlashingTimer))
 	{
 		GetWorldTimerManager().ClearTimer(DropTimerFlashingTimer);
 	}
-	GetWorldTimerManager().SetTimer(DropTimerFlashingTimer, this, &ANZP_DropsCore::ToggleFlashing,DropFasterFlashingSpeed, true);
+	GetWorldTimerManager().SetTimer(DropTimerFlashingTimer, this, &ANZP_DropsCore::ToggleFlashing,
+	                                DropFasterFlashingSpeed, true);
 }
 
 void ANZP_DropsCore::InitializeDefaults()

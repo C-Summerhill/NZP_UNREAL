@@ -1,11 +1,10 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 using UnrealBuildTool;
-using System.Collections.Generic;
 
 public class NZP_UnrealEditorTarget : TargetRules
 {
-	public NZP_UnrealEditorTarget( TargetInfo Target) : base(Target)
+	public NZP_UnrealEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V2;

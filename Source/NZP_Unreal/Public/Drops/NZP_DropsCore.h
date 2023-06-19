@@ -13,13 +13,15 @@ UCLASS()
 class NZP_UNREAL_API ANZP_DropsCore : public AActor
 {
 	GENERATED_BODY()
-	
+
 public:
 	// Sets default values for this actor's properties
 	ANZP_DropsCore();
 
-	ANZP_DropsCore(const FObjectInitializer& ObjectInitializer, bool bNewDoesDegrade, float NewDropStartingCountDownTimer, float NewDropStartingFastFlashTimer
-		, float NewDropStartingFasterFlashTimer, float NewDropFastFlashingSpeed, float NewDropFasterFlashingSpeed);
+	ANZP_DropsCore(const FObjectInitializer& ObjectInitializer, bool bNewDoesDegrade,
+	               float NewDropStartingCountDownTimer, float NewDropStartingFastFlashTimer
+	               , float NewDropStartingFasterFlashTimer, float NewDropFastFlashingSpeed,
+	               float NewDropFasterFlashingSpeed);
 
 	UFUNCTION()
 	void InitializeDefaults();
@@ -30,7 +32,7 @@ public:
 	FTimerHandle DropTimerFlashingTimer;
 
 #pragma region DROPVISUALS
-	
+
 	UPROPERTY(EditDefaultsOnly)
 	UStaticMeshComponent* DropStaticMesh;
 
@@ -46,7 +48,6 @@ public:
 #pragma endregion
 
 protected:
-
 	UPROPERTY(EditDefaultsOnly)
 	float DropStartingCountDownTimer = 30.0f;
 
@@ -68,15 +69,17 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	bool bDoesDegrade = true;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	
+
 	UFUNCTION()
-	virtual void DropBeginOverlapTrigger(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bBFromSweep,
+	virtual void DropBeginOverlapTrigger(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	                                     UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bBFromSweep,
 	                                     const FHitResult& SweepResult);
-	
-public:	
+
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -89,6 +92,4 @@ public:
 	virtual void PickupFunction(ANZP_PlayerCharacter* OtherActor);
 
 private:
-
 };
-

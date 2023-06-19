@@ -1,6 +1,6 @@
 //Connor Summerhill 2023
 
-#include "HealthComponent.h"
+#include "HealthComponent/NZP_HealthComponent.h"
 
 #include "AI/NZP_ZombieCharacter.h"
 #include "Character/NZP_PlayerCharacter.h"

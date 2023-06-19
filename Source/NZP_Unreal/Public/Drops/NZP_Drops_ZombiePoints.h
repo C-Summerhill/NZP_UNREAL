@@ -17,6 +17,7 @@ class NZP_UNREAL_API ANZP_Drops_ZombiePoints : public ANZP_DropsCore
 	ANZP_Drops_ZombiePoints();
 
 	ANZP_Drops_ZombiePoints(const FObjectInitializer& ObjectInitializer, float PointsToDrop);
+
 public:
 	virtual void PickupFunction(ANZP_PlayerCharacter* OtherActor) override;
 

@@ -6,7 +6,7 @@
 // Sets default values
 ANZP_ZombieCharacter::ANZP_ZombieCharacter()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
 	ZombieHealthComponent = CreateDefaultSubobject<UNZP_ZombieHealthComponent>(TEXT("Heath Component"));
@@ -23,5 +23,4 @@ UNZP_ZombieHealthComponent* ANZP_ZombieCharacter::GetZombieHealthComponent()
 void ANZP_ZombieCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }

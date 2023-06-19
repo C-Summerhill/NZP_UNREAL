@@ -25,7 +25,7 @@ void ANZP_UnrealGameModeBase::OnPostLogin(AController* NewPlayer)
 		newPlayerState->SetTeamNumberOnServer(CurrentTeam);
 		newPlayerState->SetPositionInTeam(PositionToAddTeamMembers);
 		PositionToAddTeamMembers++;
-		
+
 		if (PositionToAddTeamMembers == MaxPlayersPerTeam)
 		{
 			PositionToAddTeamMembers = 0;

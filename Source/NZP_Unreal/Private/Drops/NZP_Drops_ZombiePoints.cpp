@@ -7,7 +7,6 @@
 
 ANZP_Drops_ZombiePoints::ANZP_Drops_ZombiePoints()
 {
-	
 }
 
 ANZP_Drops_ZombiePoints::ANZP_Drops_ZombiePoints(const FObjectInitializer& ObjectInitializer, float newBasePointsGiven)

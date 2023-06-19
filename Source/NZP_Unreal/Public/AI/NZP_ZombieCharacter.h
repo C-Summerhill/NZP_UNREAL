@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "NZP_ZombieHealthComponent.h"
+#include "HealthComponent/NZP_ZombieHealthComponent.h"
 #include "GameFramework/Character.h"
 #include "NZP_ZombieCharacter.generated.h"
 
@@ -26,7 +26,6 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-
 	UPROPERTY()
 	UNZP_ZombieHealthComponent* ZombieHealthComponent;
 

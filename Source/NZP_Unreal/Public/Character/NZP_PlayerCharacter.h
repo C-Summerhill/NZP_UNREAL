@@ -6,7 +6,7 @@
 #include "GameFramework/Character.h"
 
 #include "InputActionValue.h"
-#include "NZP_PlayerHealthComponent.h"
+#include "HealthComponent/NZP_PlayerHealthComponent.h"
 
 #include "NZP_PlayerCharacter.generated.h"
 
@@ -20,7 +20,7 @@ class NZP_UNREAL_API ANZP_PlayerCharacter : public ACharacter
 
 public:
 	//VARIABLES
-	
+
 	//Sets default values for this character's properties
 	ANZP_PlayerCharacter();
 
@@ -47,7 +47,6 @@ public:
 	FString CurrentObjectInRange = "";
 
 protected:
-
 #pragma region INPUT
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Controls|Input Actions")
@@ -77,7 +76,7 @@ protected:
 	//Mapping Context
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Controls|Input Mappings")
 	UInputMappingContext* FPSMappingContext;
-	
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Controls|Input Mappings")
 	int32 FPSMappingContextPriority = 0;
 
@@ -89,16 +88,16 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Controller")
 	class ANZP_PlayerController* PlayerController;
 
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Player State")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Player State")
 	class ANZP_PlayerState* LocalPlayerState;
-	
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:
 	// FUNCTIONS
-	
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -117,5 +116,4 @@ protected:
 	void Interaction(const FInputActionValue& Value);
 
 	virtual void PawnClientRestart() override;
-
 };

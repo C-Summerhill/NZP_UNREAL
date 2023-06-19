@@ -17,7 +17,7 @@ void ANZP_GameState::AddPlayerState(APlayerState* PlayerState)
 
 void ANZP_GameState::RemovePlayerState(APlayerState* PlayerState)
 {
-	for (int32 i=0; i<PlayerArray.Num(); i++)
+	for (int32 i = 0; i < PlayerArray.Num(); i++)
 	{
 		if (NZPPlayerState[i] == PlayerState)
 		{

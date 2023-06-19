@@ -1,7 +1,7 @@
 // Connor Summerhill 2023
 
 
-#include "NZP_BuyableCore.h"
+#include "Buyables/NZP_BuyableCore.h"
 
 // Sets default values
 ANZP_BuyableCore::ANZP_BuyableCore()

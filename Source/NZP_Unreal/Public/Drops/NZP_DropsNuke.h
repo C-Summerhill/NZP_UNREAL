@@ -14,7 +14,7 @@ class NZP_UNREAL_API ANZP_DropsNuke : public ANZP_DropsCore
 {
 	GENERATED_BODY()
 
-public:	
+public:
 	virtual void PickupFunction(ANZP_PlayerCharacter* OtherActor) override;
 
 public:

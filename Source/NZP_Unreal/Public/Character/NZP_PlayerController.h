@@ -15,12 +15,10 @@ class NZP_UNREAL_API ANZP_PlayerController : public APlayerController
 	GENERATED_BODY()
 
 public:
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Controls|Settings")
 	bool bToggleCrouched = false;
 
 public:
-
 	UFUNCTION()
 	bool GetCrouchToggle() const;
 

@@ -17,10 +17,9 @@ class NZP_UNREAL_API ANZP_PlayerState : public APlayerState
 	ANZP_PlayerState();
 
 public:
-
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	int64 GetCurrentPoints();
-	
+
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	int64 GetTotalPoints();
 
@@ -43,12 +42,12 @@ protected:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay|Team")
 	int TeamNumber;
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay|Team")
 	int PositionInTeam;
+
 private:
-	
 	int64 CurrentPoints;
-	
+
 	int64 TotalPoints;
 };

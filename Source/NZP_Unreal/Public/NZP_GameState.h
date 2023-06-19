@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "NZP_GamemodeSettings_DataAsset.h"
+#include "Data/NZP_GamemodeSettings_DataAsset.h"
 #include "GameFramework/GameState.h"
 #include "Character/NZP_PlayerState.h"
 #include "NZP_GameState.generated.h"
@@ -28,7 +28,4 @@ public:
 
 	/** Remove PlayerState from the PlayerArray. */
 	virtual void RemovePlayerState(APlayerState* PlayerState) override;
-
-	
-
 };
