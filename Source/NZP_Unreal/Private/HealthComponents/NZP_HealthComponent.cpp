@@ -70,7 +70,7 @@ void UNZP_HealthComponent::TakeDamage_Implementation(int64 DamageToTake, FGamepl
 void UNZP_HealthComponent::Death(FGameplayTag DamageType, AActor* ActorSource,
 	ELocationHit LocationHit,int64 PointForKill, int64 PointForHeadshotKill)
 {
-
+	
 }
 
 void UNZP_HealthComponent::InitializeSystem()

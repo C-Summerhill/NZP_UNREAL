@@ -9,6 +9,7 @@
 #include "HealthComponent/NZP_ZombieHealthComponent.h"
 #include "AI/NZP_ZombieCharacter.h"
 #include "Character/NZP_PlayerCharacter.h"
+#include "Kismet/GameplayStatics.h"
 
 void ANZP_DropsNuke::PickupFunction(ANZP_PlayerCharacter* OtherActor)
 {
@@ -16,15 +17,28 @@ void ANZP_DropsNuke::PickupFunction(ANZP_PlayerCharacter* OtherActor)
 	{
 		//Kill all zombies
 		int NukeKills = 0;
-		for (TActorIterator<ANZP_ZombieCharacter> Zombie(GetWorld()); Zombie; ++Zombie)
+		//TArray<AActor*> ZombieArray;
+		// UGameplayStatics::GetAllActorsOfClass(GetWorld(), ANZP_ZombieCharacter::StaticClass(), ZombieArray);
+		// for (int ZombieCounter = 0; ZombieCounter >= ZombieArray.Num(); ++ZombieCounter)
+		// {
+		// 	if (ANZP_ZombieCharacter* TempZombie = Cast<ANZP_ZombieCharacter>(ZombieArray[ZombieCounter]))
+		// 	{
+		// 		TempZombie->GetZombieHealthComponent()->TakeDamage(TempZombie->GetZombieHealthComponent()->MaxHealth + 1, NukeDamageType, OtherActor, ELocationHit::LowerBody, 0,0);
+		// 		NukeKills++;
+		// 	}
+		// }
+		
+		for (TActorIterator<AActor> It(GetWorld(), ANZP_ZombieCharacter::StaticClass()); It; ++It)
 		{
-			//Breaking. Might look at using an interface
-			Zombie->ZombieHealthComponent->TakeDamage(Zombie->ZombieHealthComponent->MaxHealth, NukeDamageType,
-			                                          OtherActor
-			                                          , Head, 0, 0);
+			ANZP_ZombieCharacter* Zombie = Cast<ANZP_ZombieCharacter>(*It);
+			Zombie->ZombieHealthComponent->TakeDamage(Zombie->ZombieHealthComponent->MaxHealth, NukeDamageType, OtherActor, ELocationHit::LowerBody, 0,0);
 			NukeKills++;
 		}
-
+		/*for (TActorIterator<ANZP_ZombieCharacter> Zombie(GetWorld(), ANZP_ZombieCharacter::StaticClass()); Zombie; ++Zombie)
+		{
+			Zombie->GetZombieHealthComponent()->TakeDamage(Zombie->GetZombieHealthComponent()->MaxHealth, NukeDamageType, OtherActor, ELocationHit::LowerBody, 0,0);
+			NukeKills++;
+		}*/
 		//TODO: Achievement system trigger check [NZP: THE F BOMB: Kill only 1 zombie with a Nuke]
 
 		const ANZP_PlayerState* PlayerState = Cast<ANZP_PlayerState>(OtherActor->GetPlayerState());

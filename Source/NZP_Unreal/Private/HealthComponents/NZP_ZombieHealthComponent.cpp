@@ -15,7 +15,7 @@ void UNZP_ZombieHealthComponent::Death(FGameplayTag DamageType, AActor* ActorSou
  	{
  		if(PointForKill != 0 || PointForHeadshotKill != 0)
  		{
- 			if(ANZP_PlayerCharacter* PlayerCharacter = Cast<ANZP_PlayerCharacter>(ActorSource))
+ 			if(const ANZP_PlayerCharacter* PlayerCharacter = Cast<ANZP_PlayerCharacter>(ActorSource))
  			{
  				Cast<ANZP_PlayerState>(PlayerCharacter->GetPlayerState())->AddPoints(
 					 LocationHit==Head ? PointForHeadshotKill : PointForKill);
