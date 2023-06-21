@@ -28,6 +28,9 @@ public:
 	FGameplayTagContainer NewDamageResistances, FGameplayTagContainer NewDamageImmunities
 	, FGameplayTagContainer NewDamageWeakness);
 
+	void StartRenegration();
+	void StartRenegration(float InRate, float InitialDelay);
+
 	// Called every frame
 	//virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
@@ -35,6 +38,12 @@ public:
 	UFUNCTION(BlueprintCallable, Server, Unreliable)
 	void TakeDamage(int64 DamageToTake, FGameplayTag DamageType, AActor* ActorSource, ELocationHit LocationHit, int64 PointForKill, int64 PointForHeadshotKill);
 
+	UFUNCTION(BlueprintCallable, Server, Unreliable)
+	void GainHealth(int64 HealthToGain/*, FGameplayTag HealingType, AActor* ActorSource*/);
+	
+	UFUNCTION(BlueprintCallable, Server, Unreliable)
+	void BeginRegeneration();
+	
 	UFUNCTION()
 	virtual void Death(FGameplayTag DamageType, AActor* ActorSource,
 	                   ELocationHit LocationHit, int64 PointForKill, int64 PointForHeadshotKill);
@@ -46,10 +55,10 @@ protected:
 	virtual void BeginPlay() override;
 
 public:	
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	int64 MaxHealth;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	int64 CurrentHealth;
 
 	UPROPERTY(EditDefaultsOnly)
@@ -69,7 +78,20 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	float LowerBodyDamageModifer = 1.f;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Regeneration")
+	bool bCanRegeneratedHealth;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Regeneration")
+	float DelayBeforeStartRegeneration = 5.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Regeneration")
+	float RegenerationRateOfHealthGained = 10;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Regeneration")
+	float DelayBetweenHealthGains = 0.1f;
+
 	FGameplayTagContainer DamageResistances;
 	FGameplayTagContainer DamageImmunities;
 	FGameplayTagContainer DamageWeakness;
+	FTimerHandle TriggerRegenerationOfHealth;
 };

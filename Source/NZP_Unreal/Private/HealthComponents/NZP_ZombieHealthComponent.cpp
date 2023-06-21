@@ -6,6 +6,11 @@
 #include "Character/NZP_PlayerState.h"
 #include "Drops/NZP_Drops_ZombiePoints.h"
 
+UNZP_ZombieHealthComponent::UNZP_ZombieHealthComponent()
+{
+	bCanRegeneratedHealth = false;
+}
+
 void UNZP_ZombieHealthComponent::Death(FGameplayTag DamageType, AActor* ActorSource, ELocationHit LocationHit,
                                        int64 PointForKill, int64 PointForHeadshotKill)
 {

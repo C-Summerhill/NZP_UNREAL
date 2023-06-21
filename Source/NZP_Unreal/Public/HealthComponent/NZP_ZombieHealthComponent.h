@@ -14,6 +14,8 @@ class NZP_UNREAL_API UNZP_ZombieHealthComponent : public UNZP_HealthComponent
 {
 	GENERATED_BODY()
 
+	UNZP_ZombieHealthComponent();
+
 	virtual void Death(FGameplayTag DamageType, AActor* ActorSource,
 		ELocationHit LocationHit, int64 PointForKill, int64 PointForHeadshotKill) override;
 

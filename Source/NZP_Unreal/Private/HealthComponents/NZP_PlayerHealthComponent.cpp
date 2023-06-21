@@ -9,6 +9,7 @@ UNZP_PlayerHealthComponent::UNZP_PlayerHealthComponent()
 {
 	MaxHealth = 100;
 	CurrentHealth = 100;
+	bCanRegeneratedHealth = true;
 }
 
 void UNZP_PlayerHealthComponent::Death(FGameplayTag DamageType, AActor* ActorSource, ELocationHit LocationHit,

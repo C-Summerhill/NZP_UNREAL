@@ -6,6 +6,9 @@
 #include "Character/NZP_PlayerCharacter.h"
 #include "Character/NZP_PlayerState.h"
 #include "Kismet/GameplayStatics.h"
+#include "EngineUtils.h"
+#include "Drops/NZP_DropsCore.h"
+
 
 // Sets default values for this component's properties
 UNZP_HealthComponent::UNZP_HealthComponent()
@@ -25,8 +28,33 @@ UNZP_HealthComponent::UNZP_HealthComponent(const FObjectInitializer& ObjectIniti
 	InitializeSystem();
 }
 
+void UNZP_HealthComponent::StartRenegration()
+{
+	GetWorld()->GetTimerManager().SetTimer(TriggerRegenerationOfHealth, this, &UNZP_HealthComponent::BeginRegeneration,
+	                                       DelayBetweenHealthGains, true, DelayBeforeStartRegeneration);
+}
+
+void UNZP_HealthComponent::StartRenegration(float InRate, float InitialDelay)
+{
+	GetWorld()->GetTimerManager().SetTimer(TriggerRegenerationOfHealth, this, &UNZP_HealthComponent::BeginRegeneration,
+										   InRate, true, InitialDelay);
+}
+
+void UNZP_HealthComponent::GainHealth_Implementation(int64 HealthToGain/*, FGameplayTag HealingType, AActor* ActorSource*/)
+{
+	CurrentHealth += HealthToGain;
+	if (CurrentHealth >= MaxHealth)
+	{
+		CurrentHealth = MaxHealth;
+		if(GetWorld()->GetTimerManager().TimerExists(TriggerRegenerationOfHealth))
+		{
+			GetWorld()->GetTimerManager().ClearTimer(TriggerRegenerationOfHealth);
+		}
+	}
+}
+
 void UNZP_HealthComponent::TakeDamage_Implementation(int64 DamageToTake, FGameplayTag DamageType, AActor* ActorSource,
-	ELocationHit LocationHit,int64 PointForKill, int64 PointForHeadshotKill)
+                                                     ELocationHit LocationHit,int64 PointForKill, int64 PointForHeadshotKill)
 {
 	if (DamageImmunities.HasTagExact(DamageType))
 	{
@@ -65,10 +93,19 @@ void UNZP_HealthComponent::TakeDamage_Implementation(int64 DamageToTake, FGamepl
 	{
 		Death(DamageType, ActorSource, LocationHit, PointForKill, PointForHeadshotKill);
 	}
+	else if (bCanRegeneratedHealth)
+	{
+		StartRenegration();
+	}
+}
+
+void UNZP_HealthComponent::BeginRegeneration_Implementation()
+{
+	GainHealth(RegenerationRateOfHealthGained);
 }
 
 void UNZP_HealthComponent::Death(FGameplayTag DamageType, AActor* ActorSource,
-	ELocationHit LocationHit,int64 PointForKill, int64 PointForHeadshotKill)
+                                 ELocationHit LocationHit,int64 PointForKill, int64 PointForHeadshotKill)
 {
 	
 }
@@ -83,7 +120,6 @@ void UNZP_HealthComponent::InitializeSystem()
 void UNZP_HealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
 	// ...
 	
 }
