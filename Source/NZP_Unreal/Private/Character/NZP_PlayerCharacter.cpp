@@ -203,6 +203,11 @@ void ANZP_PlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 	}
 }
 
+UNZP_PlayerHealthComponent* ANZP_PlayerCharacter::GetHealthComponent() const
+{
+	return PlayerHealthComponent;
+}
+
 void ANZP_PlayerCharacter::ScanForIntractable()
 {
 	FVector Start = GetOwner()->GetActorLocation();

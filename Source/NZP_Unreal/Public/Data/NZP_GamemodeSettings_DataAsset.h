@@ -15,6 +15,8 @@ class NZP_UNREAL_API UNZP_GamemodeSettings_DataAsset : public UNZP_DataAsset
 {
 	GENERATED_BODY()
 
+	UNZP_GamemodeSettings_DataAsset();
+
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FName GameModeName = "Classic";

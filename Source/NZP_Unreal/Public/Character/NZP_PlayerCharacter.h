@@ -39,7 +39,7 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Point Systems")
 	TSubclassOf<class ANZP_Drops_ZombiePoints> Anzp_Drops_ZombiePointsReference;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	UNZP_PlayerHealthComponent* PlayerHealthComponent;
 
 	//Interaction with the world
@@ -103,6 +103,9 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UFUNCTION(BlueprintGetter)
+	UNZP_PlayerHealthComponent* GetHealthComponent() const;
 
 protected:
 	void ScanForIntractable();

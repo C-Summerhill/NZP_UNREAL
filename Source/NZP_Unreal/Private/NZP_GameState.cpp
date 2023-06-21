@@ -6,6 +6,21 @@
 #include "Character/NZP_PlayerState.h"
 #include "GameFramework/PlayerState.h"
 
+ANZP_GameState::ANZP_GameState()
+{
+
+}
+
+void ANZP_GameState::BeginPlay()
+{
+	Super::BeginPlay();
+	
+	if (!CurrentGameModeSettings)
+	{
+		CurrentGameModeSettings = GetWorld()->SpawnActor<UNZP_GamemodeSettings_DataAsset>();
+	}
+}
+
 void ANZP_GameState::AddPlayerState(APlayerState* PlayerState)
 {
 	if (!PlayerState->IsInactive())
@@ -26,4 +41,9 @@ void ANZP_GameState::RemovePlayerState(APlayerState* PlayerState)
 		}
 	}
 	Super::RemovePlayerState(PlayerState);
+}
+
+UNZP_GamemodeSettings_DataAsset* ANZP_GameState::GetCurrentGameModeSettings()
+{
+	return CurrentGameModeSettings;
 }
