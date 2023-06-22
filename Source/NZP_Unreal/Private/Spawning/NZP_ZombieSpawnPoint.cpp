@@ -1,7 +1,7 @@
 // Connor Summerhill 2023
 
 
-#include "NZP_ZombieSpawnPoint.h"
+#include "Spawning/NZP_ZombieSpawnPoint.h"
 
 // Sets default values
 ANZP_ZombieSpawnPoint::ANZP_ZombieSpawnPoint()

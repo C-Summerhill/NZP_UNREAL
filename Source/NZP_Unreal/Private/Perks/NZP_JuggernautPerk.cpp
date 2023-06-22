@@ -1,7 +1,7 @@
 // Connor Summerhill 2023
 
 
-#include "NZP_JuggernautPerk.h"
+#include "Perks/NZP_JuggernautPerk.h"
 
 #include "Character/NZP_PlayerCharacter.h"
 

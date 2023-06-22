@@ -25,4 +25,10 @@ public:
 
 	UPROPERTY(EditDefaultsOnly)
 	FName RoomName;
+	
+	UPROPERTY(EditDefaultsOnly)
+	TArray<class ANZP_ZombieSpawnPoint*> RelevantZombieSpawners;
+
+	//UPROPERTY(EditDefaultsOnly)
+	//TArray
 };

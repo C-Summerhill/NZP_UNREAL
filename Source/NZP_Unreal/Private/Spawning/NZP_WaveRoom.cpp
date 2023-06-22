@@ -1,7 +1,7 @@
 // Connor Summerhill 2023
 
 
-#include "NZP_WaveRoom.h"
+#include "Spawning/NZP_WaveRoom.h"
 
 // Sets default values
 ANZP_WaveRoom::ANZP_WaveRoom()

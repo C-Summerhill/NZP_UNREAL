@@ -1,7 +1,7 @@
 // Connor Summerhill 2023
 
 
-#include "NZP_PerkComponent.h"
+#include "Perks/NZP_PerkComponent.h"
 
 // Sets default values for this component's properties
 UNZP_PerkComponent::UNZP_PerkComponent()
