@@ -25,3 +25,8 @@ void ANZP_ZombieSpawnPoint::Tick(float DeltaTime)
 
 }
 
+void ANZP_ZombieSpawnPoint::SpawnZombie()
+{
+	
+}
+

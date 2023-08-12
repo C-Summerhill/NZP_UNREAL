@@ -8,7 +8,7 @@
 
 ANZP_GameState::ANZP_GameState()
 {
-
+	
 }
 
 void ANZP_GameState::BeginPlay()
@@ -25,7 +25,7 @@ void ANZP_GameState::AddPlayerState(APlayerState* PlayerState)
 {
 	if (!PlayerState->IsInactive())
 	{
-		NZPPlayerState.AddUnique(Cast<ANZP_PlayerState>(PlayerState));
+		NZPPlayerStates.AddUnique(Cast<ANZP_PlayerState>(PlayerState));
 	}
 	Super::AddPlayerState(PlayerState);
 }
@@ -34,9 +34,9 @@ void ANZP_GameState::RemovePlayerState(APlayerState* PlayerState)
 {
 	for (int32 i = 0; i < PlayerArray.Num(); i++)
 	{
-		if (NZPPlayerState[i] == PlayerState)
+		if (NZPPlayerStates[i] == PlayerState)
 		{
-			NZPPlayerState.RemoveAt(i, 1);
+			NZPPlayerStates.RemoveAt(i, 1);
 			return;
 		}
 	}

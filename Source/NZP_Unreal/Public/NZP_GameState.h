@@ -18,7 +18,7 @@ class NZP_UNREAL_API ANZP_GameState : public AGameStateBase
 
 public:
 	//UPROPERTY(Transient, BlueprintReadOnly, Category=GameState)
-	TArray<ANZP_PlayerState*> NZPPlayerState;
+	TArray<ANZP_PlayerState*> NZPPlayerStates;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UNZP_GamemodeSettings_DataAsset* CurrentGameModeSettings;
