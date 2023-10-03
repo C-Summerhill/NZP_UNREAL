@@ -1,7 +1,7 @@
 // Connor Summerhill 2023
 
 
-#include "Spawning/NZP_WaveSystem.h"
+#include "..\..\Public\Spawning\NZP_WaveSystem_old.h"
 
 #include "NZP_GameState.h"
 
