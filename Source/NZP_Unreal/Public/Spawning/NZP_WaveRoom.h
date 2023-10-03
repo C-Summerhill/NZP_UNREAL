@@ -30,5 +30,8 @@ public:
 	TArray<class ANZP_ZombieSpawnPoint*> RelevantZombieSpawners;
 
 	//UPROPERTY(EditDefaultsOnly)
-	//TArray
+	//TArray<class NZP_WaveRoom*>NeighbourRooms;
+	
+	UPROPERTY(BlueprintReadOnly)
+	bool isActive = false;
 };

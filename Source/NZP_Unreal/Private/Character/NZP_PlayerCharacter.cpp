@@ -3,10 +3,10 @@
 
 #include "Character/NZP_PlayerCharacter.h"
 
-#include "AITypes.h"
+//#include "AITypes.h"
 #include "Buyables/NZP_BuyInteractionInterface.h"
 #include "EnhancedInputSubsystems.h"
-#include "EnhancedInput/Public/EnhancedInputComponent.h"
+#include "EnhancedInputComponent.h"
 
 #include "Camera/CameraComponent.h"
 #include "Character/NZP_PlayerController.h"

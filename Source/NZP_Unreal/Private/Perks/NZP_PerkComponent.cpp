@@ -22,13 +22,3 @@ void UNZP_PerkComponent::BeginPlay()
 	// ...
 	
 }
-
-
-// Called every frame
-void UNZP_PerkComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
-}
-

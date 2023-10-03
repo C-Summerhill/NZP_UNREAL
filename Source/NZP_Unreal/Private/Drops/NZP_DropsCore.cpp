@@ -12,6 +12,8 @@ ANZP_DropsCore::ANZP_DropsCore()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
+	bReplicates = true;
+
 	InitializeDefaults();
 }
 
@@ -30,6 +32,8 @@ ANZP_DropsCore::ANZP_DropsCore(const FObjectInitializer& ObjectInitializer, bool
 	DropFastFlashingSpeed = NewDropFastFlashingSpeed;
 	DropFasterFlashingSpeed = NewDropFasterFlashingSpeed;
 
+	bReplicates = true;
+	
 	InitializeDefaults();
 }
 
@@ -110,6 +114,7 @@ void ANZP_DropsCore::InitializeDefaults()
 	DropStaticMesh->SetCollisionProfileName(TEXT("OverlapOnlyPawn"));
 	DropStaticMesh->OnComponentBeginOverlap.AddDynamic(this, &ANZP_DropsCore::DropBeginOverlapTrigger);
 	DropStaticMesh->SetupAttachment(GetRootComponent());
+	DropStaticMesh->CastShadow = 0;
 
 	if (AudioCue)
 	{

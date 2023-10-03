@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class NZP_UNREAL_API UNZP_JuggernautPerk : public UNZP_PerkComponent
 {
 	GENERATED_BODY()

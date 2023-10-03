@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "NZP_GameState.h"
 #include "GameFramework/Actor.h"
-#include "NZP_WaveSystem.generated.h"
+#include "NZP_WaveSystem_old.generated.h"
 
 UCLASS()
 class NZP_UNREAL_API ANZP_WaveSystem : public AActor
