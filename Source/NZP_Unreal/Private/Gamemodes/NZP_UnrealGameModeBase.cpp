@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 
-#include "NZP_UnrealGameModeBase.h"
+#include "Gamemodes/NZP_UnrealGameModeBase.h"
 
 #include "NZP_GameState.h"
 #include "Character/NZP_PlayerController.h"
