@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
+#include "GameFramework/Character.h"
 #include "NZP_MenuPawn.generated.h"
 
 UCLASS()
-class NZP_UNREAL_API ANZP_MenuPawn : public APawn
+class NZP_UNREAL_API ANZP_MenuPawn : public ACharacter
 {
 	GENERATED_BODY()
 

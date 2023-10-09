@@ -3,14 +3,19 @@
 
 #include "NZP_MenuPawn.h"
 
+#include "Components/CapsuleComponent.h"
+
 // Sets default values
 ANZP_MenuPawn::ANZP_MenuPawn()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	
+	GetCapsuleComponent()->SetEnableGravity(false);
+	GetMesh()->SetEnableGravity(false);
+	bSimGravityDisabled = 0;
 }
-
+ 
 // Called when the game starts or when spawned
 void ANZP_MenuPawn::BeginPlay()
 {
