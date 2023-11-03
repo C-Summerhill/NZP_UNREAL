@@ -26,10 +26,13 @@ void ANZP_UnrealGameModeBase::OnPostLogin(AController* NewPlayer)
 		newPlayerState->SetPositionInTeam(PositionToAddTeamMembers);
 		PositionToAddTeamMembers++;
 
-		if (PositionToAddTeamMembers == MaxPlayersPerTeam)
+		if (PositionToAddTeamMembers >= MaxPlayersPerTeam)
 		{
 			PositionToAddTeamMembers = 0;
 			CurrentTeam++;
 		}
+
+		//Game Start Settings
+		newPlayerState->SetCurrentPoints(StartingPoints);
 	}
 }

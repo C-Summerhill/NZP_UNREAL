@@ -15,10 +15,10 @@ UCLASS()
 class NZP_UNREAL_API ANZP_UnrealGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-
+	
+public:
 	ANZP_UnrealGameModeBase();
 
-public:
 	virtual void OnPostLogin(AController* NewPlayer) override;
 
 public:
@@ -30,4 +30,9 @@ public:
 
 	UPROPERTY()
 	int CurrentTeam = 0;
+
+	//Global Game Settings
+	UPROPERTY()
+	int64 StartingPoints = 500;
+	
 };

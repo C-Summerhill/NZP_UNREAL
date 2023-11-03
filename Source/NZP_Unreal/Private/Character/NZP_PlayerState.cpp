@@ -5,15 +5,15 @@
 
 ANZP_PlayerState::ANZP_PlayerState()
 {
-	CurrentPoints = 500;
+	CurrentPoints = 0;
 }
 
-int64 ANZP_PlayerState::GetCurrentPoints()
+int64 ANZP_PlayerState::GetCurrentPoints() const
 {
 	return CurrentPoints;
 }
 
-int64 ANZP_PlayerState::GetTotalPoints()
+int64 ANZP_PlayerState::GetTotalPoints() const
 {
 	return TotalPoints;
 }
@@ -26,6 +26,11 @@ void ANZP_PlayerState::SetCurrentPoints(int64 NewCurrentPoints)
 void ANZP_PlayerState::SetTotalPoints(int64 NewCurrentPoints)
 {
 	TotalPoints = NewCurrentPoints;
+}
+
+void ANZP_PlayerState::OnRep_CurrentPoints() const
+{
+	UpdateCurrentPoints.ExecuteIfBound(CurrentPoints);
 }
 
 void ANZP_PlayerState::AddPoints(int64 PointsToAdd)

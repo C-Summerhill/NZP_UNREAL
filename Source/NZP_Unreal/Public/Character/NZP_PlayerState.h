@@ -6,6 +6,8 @@
 #include "GameFramework/PlayerState.h"
 #include "NZP_PlayerState.generated.h"
 
+DECLARE_DYNAMIC_DELEGATE_OneParam(FCurrentPointsUpdated, int64, NewCurrentPoints);
+
 /**
  * 
  */
@@ -18,10 +20,10 @@ class NZP_UNREAL_API ANZP_PlayerState : public APlayerState
 
 public:
 	UFUNCTION(BlueprintCallable, BlueprintPure)
-	int64 GetCurrentPoints();
+	int64 GetCurrentPoints() const;
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
-	int64 GetTotalPoints();
+	int64 GetTotalPoints() const;
 
 	UFUNCTION(Server, Reliable)
 	void SetTeamNumberOnServer(int NewTeamNumber);
@@ -39,6 +41,11 @@ protected:
 	void SetCurrentPoints(int64 NewCurrentPoints);
 	void SetTotalPoints(int64 NewCurrentPoints);
 
+	FCurrentPointsUpdated UpdateCurrentPoints;
+
+private:
+	void OnRep_CurrentPoints() const;
+
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay|Team")
 	int TeamNumber;
@@ -47,6 +54,7 @@ public:
 	int PositionInTeam;
 
 private:
+	UPROPERTY(ReplicatedUsing=OnRep_CurrentPoints)
 	int64 CurrentPoints;
 
 	int64 TotalPoints;
