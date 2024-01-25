@@ -150,7 +150,6 @@ void ANZP_PlayerCharacter::PawnClientRestart()
 			UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
 			Subsystem->ClearAllMappings();
-
 			Subsystem->AddMappingContext(FPSMappingContext, FPSMappingContextPriority);
 		}
 	}

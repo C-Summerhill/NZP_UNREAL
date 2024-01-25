@@ -3,6 +3,8 @@
 
 #include "Character/NZP_PlayerState.h"
 
+#include "Net/UnrealNetwork.h"
+
 ANZP_PlayerState::ANZP_PlayerState()
 {
 	CurrentPoints = 0;
@@ -28,7 +30,7 @@ void ANZP_PlayerState::SetTotalPoints(int64 NewCurrentPoints)
 	TotalPoints = NewCurrentPoints;
 }
 
-void ANZP_PlayerState::OnRep_CurrentPoints() const
+void ANZP_PlayerState::OnRep_CurrentPoints()
 {
 	UpdateCurrentPoints.ExecuteIfBound(CurrentPoints);
 }
@@ -48,6 +50,13 @@ bool ANZP_PlayerState::SpendPoints(int64 PointsToTake)
 	}
 	CurrentPoints -= PointsToTake;
 	return true;
+}
+
+void ANZP_PlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	
+	DOREPLIFETIME(ANZP_PlayerState, CurrentPoints);
 }
 
 void ANZP_PlayerState::SetPositionInTeam_Implementation(int NewPositionNumber)
