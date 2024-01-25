@@ -32,7 +32,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (ToolTip = "Inital only, if this changes during your map, trigger it manually"))
 	bool bEndlessWaves = false;
-	
+
+	//Weapons currently not implemented
 	//UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	//GUNCLASS* StartingWeapon = Pistol;
 	
@@ -57,6 +58,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool bShouldPackAPunchExist = true;
 
+	//For easy mode, All players share the same bank.
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool bSharedBank = false;
 

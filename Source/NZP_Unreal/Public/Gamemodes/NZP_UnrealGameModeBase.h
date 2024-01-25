@@ -34,5 +34,4 @@ public:
 	//Global Game Settings
 	UPROPERTY()
 	int64 StartingPoints = 500;
-	
 };

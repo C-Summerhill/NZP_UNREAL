@@ -3,7 +3,7 @@
 
 #include "Gamemodes/NZP_Survival.h"
 
-#include "NZP_GameState.h"
+#include "GameStates/NZP_GameState.h"
 #include "Net/UnrealNetwork.h"
 
 ANZP_Survival::ANZP_Survival() : ANZP_UnrealGameModeBase()

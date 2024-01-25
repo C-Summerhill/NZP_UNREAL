@@ -4,11 +4,11 @@
 #include "Drops/NZP_DropsNuke.h"
 
 #include "EngineUtils.h"
-#include "NZP_GameState.h"
+#include "GameStates/NZP_GameState.h"
 #include "Gamemodes/NZP_UnrealGameModeBase.h"
 #include "HealthComponent/NZP_ZombieHealthComponent.h"
 #include "AI/NZP_ZombieCharacter.h"
-#include "Character/NZP_PlayerCharacter.h"
+#include "Pawn/NZP_PlayerCharacter.h"
 
 ANZP_DropsNuke::ANZP_DropsNuke()
 {
@@ -26,7 +26,7 @@ void ANZP_DropsNuke::PickupFunction(ANZP_PlayerCharacter* OtherActor)
 		for (TActorIterator<AActor> It(GetWorld(), ANZP_ZombieCharacter::StaticClass()); It; ++It)
 		{
 			ANZP_ZombieCharacter* Zombie = Cast<ANZP_ZombieCharacter>(*It);
-			Zombie->ZombieHealthComponent->TakeDamage(Zombie->ZombieHealthComponent->MaxHealth, NukeDamageType, OtherActor, ELocationHit::LowerBody, 0,0);
+			Zombie->GetZombieHealthComponent()->TakeDamage(Zombie->GetZombieHealthComponent()->MaxHealth, NukeDamageType, OtherActor, ELocationHit::LowerBody, 0,0);
 			NukeKills++;
 		}
 

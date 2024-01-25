@@ -2,7 +2,7 @@
 #include "HealthComponent/NZP_ZombieHealthComponent.h"
 
 #include "AI/NZP_ZombieCharacter.h"
-#include "Character/NZP_PlayerCharacter.h"
+#include "Pawn/NZP_PlayerCharacter.h"
 #include "Character/NZP_PlayerState.h"
 #include "Drops/NZP_Drops_ZombiePoints.h"
 

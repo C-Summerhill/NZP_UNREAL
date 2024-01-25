@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "NZP_GameState.h"
+#include "Gamestates/NZP_GameState.h"
 #include "GameFramework/Actor.h"
 #include "NZP_WaveSystem_old.generated.h"
 

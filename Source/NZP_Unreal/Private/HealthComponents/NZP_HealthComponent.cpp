@@ -3,7 +3,7 @@
 #include "HealthComponent/NZP_HealthComponent.h"
 
 #include "AI/NZP_ZombieCharacter.h"
-#include "Character/NZP_PlayerCharacter.h"
+#include "Pawn/NZP_PlayerCharacter.h"
 #include "Character/NZP_PlayerState.h"
 #include "Kismet/GameplayStatics.h"
 #include "EngineUtils.h"

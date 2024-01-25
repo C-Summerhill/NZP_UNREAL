@@ -3,7 +3,7 @@
 
 #include "..\..\Public\Spawning\NZP_WaveSystem_old.h"
 
-#include "NZP_GameState.h"
+#include "GameStates/NZP_GameState.h"
 
 // Sets default values
 ANZP_WaveSystem::ANZP_WaveSystem()

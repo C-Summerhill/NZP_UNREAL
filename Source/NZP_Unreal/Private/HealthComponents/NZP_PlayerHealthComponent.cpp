@@ -3,7 +3,7 @@
 
 #include "HealthComponent/NZP_PlayerHealthComponent.h"
 
-#include "Character/NZP_PlayerCharacter.h"
+#include "Pawn/NZP_PlayerCharacter.h"
 
 UNZP_PlayerHealthComponent::UNZP_PlayerHealthComponent()
 {

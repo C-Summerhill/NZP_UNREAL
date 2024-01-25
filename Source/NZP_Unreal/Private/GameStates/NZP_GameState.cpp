@@ -1,7 +1,7 @@
 //Connor Summerhill 2023
 
 
-#include "NZP_GameState.h"
+#include "GameStates/NZP_GameState.h"
 
 #include "Character/NZP_PlayerState.h"
 #include "GameFramework/PlayerState.h"

@@ -3,9 +3,9 @@
 
 #include "Gamemodes/NZP_MainMenu.h"
 
-#include "NZP_GameState.h"
-#include "NZP_Hud_Class.h"
-#include "NZP_MenuPawn.h"
+#include "GameStates/NZP_GameState.h"
+#include "HUD/NZP_Hud_Class.h"
+#include "Pawn/NZP_MenuPawn.h"
 #include "Character/NZP_PlayerController.h"
 #include "Character/NZP_PlayerState.h"
 

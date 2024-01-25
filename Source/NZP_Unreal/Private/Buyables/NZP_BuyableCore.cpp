@@ -8,25 +8,25 @@ ANZP_BuyableCore::ANZP_BuyableCore()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-	InteractionInformation = "Default Give information";
+	BuyableInformationToReturn = "Default Give information";
 }
 
-bool ANZP_BuyableCore::Buyable_Implementation()
+bool ANZP_BuyableCore::IsBuyable_Implementation()
+{
+	return INZP_BuyInteractionInterface::IsBuyable_Implementation();
+}
+
+bool ANZP_BuyableCore::IsBuyable_Pure()
 {
 	return false;
 }
 
-bool ANZP_BuyableCore::BuyablePure()
-{
-	return false;
-}
-
-FString ANZP_BuyableCore::GiveInformationPure()
+FString ANZP_BuyableCore::ReturnInformation_Pure()
 {
 	return "Default";
 }
 
-FString ANZP_BuyableCore::GiveInformation_Implementation()
+FString ANZP_BuyableCore::ReturnInformation_Implementation()
 {
-	return "Default";
+	return INZP_BuyInteractionInterface::ReturnInformation_Implementation();
 }

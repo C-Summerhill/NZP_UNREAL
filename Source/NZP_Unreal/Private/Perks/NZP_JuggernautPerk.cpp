@@ -3,7 +3,7 @@
 
 #include "Perks/NZP_JuggernautPerk.h"
 
-#include "Character/NZP_PlayerCharacter.h"
+#include "Pawn/NZP_PlayerCharacter.h"
 
 void UNZP_JuggernautPerk::BeginPlay()
 {

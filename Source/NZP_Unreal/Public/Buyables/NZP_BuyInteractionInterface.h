@@ -20,18 +20,17 @@ class NZP_UNREAL_API INZP_BuyInteractionInterface
 {
 	GENERATED_BODY()
 
-	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 
 	UFUNCTION(BlueprintNativeEvent)
-	bool Buyable();
+	bool IsBuyable();
 
 	UFUNCTION()
-	virtual bool BuyablePure() = 0;
+	virtual bool IsBuyable_Pure() = 0;
 
 	UFUNCTION(BlueprintNativeEvent)
-	FString GiveInformation();
+	FString ReturnInformation();
 
 	UFUNCTION()
-	virtual FString GiveInformationPure() = 0;
+	virtual FString ReturnInformation_Pure() = 0;
 };

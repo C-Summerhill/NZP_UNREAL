@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Character/NZP_PlayerCharacter.h"
+#include "Pawn/NZP_PlayerCharacter.h"
 #include "Components/SpotLightComponent.h"
 #include "GameFramework/Actor.h"
 #include "Sound/SoundCue.h"

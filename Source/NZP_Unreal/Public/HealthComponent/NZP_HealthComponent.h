@@ -10,23 +10,23 @@
 UENUM()
 enum ELocationHit
 {
-	Head		UMETA(DisplayName="Headshot"),
-	UpperBody	UMETA(DisplayName="UpperBody"),
-	LowerBody	UMETA(DisplayName="LowerBody"),
+	Head UMETA(DisplayName="Headshot"),
+	UpperBody UMETA(DisplayName="UpperBody"),
+	LowerBody UMETA(DisplayName="LowerBody"),
 };
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class NZP_UNREAL_API UNZP_HealthComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
-public:	
+public:
 	// Sets default values for this component's properties
 	UNZP_HealthComponent();
 
 	UNZP_HealthComponent(const FObjectInitializer& ObjectInitializer, int64 NewMaxHealth,
-	FGameplayTagContainer NewDamageResistances, FGameplayTagContainer NewDamageImmunities
-	, FGameplayTagContainer NewDamageWeakness);
+	                     FGameplayTagContainer NewDamageResistances, FGameplayTagContainer NewDamageImmunities
+	                     , FGameplayTagContainer NewDamageWeakness);
 
 	void StartRenegration();
 	void StartRenegration(float InRate, float InitialDelay);
@@ -34,16 +34,17 @@ public:
 	// Called every frame
 	//virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	
+
 	UFUNCTION(BlueprintCallable, Server, Unreliable)
-	void TakeDamage(int64 DamageToTake, FGameplayTag DamageType, AActor* ActorSource, ELocationHit LocationHit, int64 PointForKill, int64 PointForHeadshotKill);
+	void TakeDamage(int64 DamageToTake, FGameplayTag DamageType, AActor* ActorSource, ELocationHit LocationHit,
+	                int64 PointForKill, int64 PointForHeadshotKill);
 
 	UFUNCTION(BlueprintCallable, Server, Unreliable)
 	void GainHealth(int64 HealthToGain/*, FGameplayTag HealingType, AActor* ActorSource*/);
-	
+
 	UFUNCTION(BlueprintCallable, Server, Unreliable)
 	void BeginRegeneration();
-	
+
 	UFUNCTION()
 	virtual void Death(FGameplayTag DamageType, AActor* ActorSource,
 	                   ELocationHit LocationHit, int64 PointForKill, int64 PointForHeadshotKill);
@@ -54,7 +55,7 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	int64 MaxHealth;
 

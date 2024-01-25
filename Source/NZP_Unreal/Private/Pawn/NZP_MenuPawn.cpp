@@ -1,7 +1,7 @@
 // Connor Summerhill 2023
 
 
-#include "NZP_MenuPawn.h"
+#include "Pawn/NZP_MenuPawn.h"
 
 #include "Components/CapsuleComponent.h"
 

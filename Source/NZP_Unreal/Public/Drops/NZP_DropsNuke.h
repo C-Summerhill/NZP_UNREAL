@@ -23,6 +23,7 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	int64 BasePointsGiven = 400;
 
+	//To allow boss zombies to be uneffected by the instance kill of the nuke, Damaged handled internally.
 	UPROPERTY(EditDefaultsOnly)
 	FGameplayTag NukeDamageType = FGameplayTag::RequestGameplayTag("DamageType.Nuke");
 };

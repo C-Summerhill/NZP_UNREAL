@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "MainMenu_Widget.h"
+#include "Widgets/MainMenu_Widget.h"
 #include "GameFramework/HUD.h"
 #include "NZP_Hud_Class.generated.h"
 

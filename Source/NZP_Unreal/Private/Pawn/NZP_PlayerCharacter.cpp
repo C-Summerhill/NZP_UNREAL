@@ -1,7 +1,7 @@
 //Connor Summerhill 2023
 
 
-#include "Character/NZP_PlayerCharacter.h"
+#include "Pawn/NZP_PlayerCharacter.h"
 
 //#include "AITypes.h"
 #include "Buyables/NZP_BuyInteractionInterface.h"
@@ -222,8 +222,8 @@ void ANZP_PlayerCharacter::ScanForIntractable()
 	{
 		if (Hit.GetActor()->GetClass()->ImplementsInterface(UNZP_BuyInteractionInterface::StaticClass()))
 		{
-			CurrentObjectInRange = Cast<INZP_BuyInteractionInterface>(Hit.GetActor())->GiveInformation();
-			CurrentObjectInRange = INZP_BuyInteractionInterface::Execute_GiveInformation(Hit.GetActor());
+			CurrentObjectInRange = Cast<INZP_BuyInteractionInterface>(Hit.GetActor())->ReturnInformation();
+			CurrentObjectInRange = INZP_BuyInteractionInterface::Execute_ReturnInformation(Hit.GetActor());
 		}
 	}
 	else

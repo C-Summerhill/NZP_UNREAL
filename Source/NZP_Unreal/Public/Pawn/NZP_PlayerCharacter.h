@@ -24,12 +24,6 @@ public:
 	//Sets default values for this character's properties
 	ANZP_PlayerCharacter();
 
-	UPROPERTY(EditDefaultsOnly, Category = Mesh)
-	USkeletalMeshComponent* ThirdPersonMesh;
-
-	UPROPERTY(EditDefaultsOnly, Category = Mesh)
-	class UCameraComponent* CameraComponent;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Controls")
 	bool IsCrouching = false;
 
@@ -91,6 +85,13 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Player State")
 	class ANZP_PlayerState* LocalPlayerState;
 
+private:
+	UPROPERTY(EditDefaultsOnly, Category = Mesh)
+	USkeletalMeshComponent* ThirdPersonMesh;
+
+	UPROPERTY(EditDefaultsOnly, Category = Mesh)
+	class UCameraComponent* CameraComponent;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -117,6 +118,7 @@ protected:
 	void Crouching(const FInputActionValue& Value);
 	void DropPointsFunction(const FInputActionValue& Value);
 	void Interaction(const FInputActionValue& Value);
+	//Inputs - End
 
 	virtual void PawnClientRestart() override;
 };

@@ -18,6 +18,7 @@ public:
 
 	//ANZP_ZombieCharacter(const FObjectInitializer& ObjectInitializer);
 
+	//Returns Zombie Health Component
 	UFUNCTION(BlueprintCallable)
 	UNZP_ZombieHealthComponent* GetZombieHealthComponent();
 
@@ -25,7 +26,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:
+private:
 	UPROPERTY()
 	UNZP_ZombieHealthComponent* ZombieHealthComponent;
 

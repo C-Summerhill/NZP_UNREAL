@@ -3,9 +3,9 @@
 
 #include "Gamemodes/NZP_UnrealGameModeBase.h"
 
-#include "NZP_GameState.h"
+#include "GameStates/NZP_GameState.h"
 #include "Character/NZP_PlayerController.h"
-#include "Character/NZP_PlayerCharacter.h"
+#include "Pawn/NZP_PlayerCharacter.h"
 #include "Character/NZP_PlayerState.h"
 
 ANZP_UnrealGameModeBase::ANZP_UnrealGameModeBase()

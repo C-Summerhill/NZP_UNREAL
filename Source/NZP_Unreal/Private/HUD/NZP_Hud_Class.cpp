@@ -1,9 +1,9 @@
 // Connor Summerhill 2023
 
 
-#include "NZP_Hud_Class.h"
+#include "HUD/NZP_Hud_Class.h"
 
-#include "MainMenu_Widget.h"
+#include "Widgets/MainMenu_Widget.h"
 #include "Blueprint/UserWidget.h"
 
 ANZP_Hud_Class::ANZP_Hud_Class()
